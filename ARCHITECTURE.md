@@ -201,7 +201,7 @@ CDN Distribution
   100+ edge locations worldwide
      │
      ▼
-gnatta.it live
+costruzioni-gnatta.it live
 ```
 
 Build time stimato: ~30-45 secondi.

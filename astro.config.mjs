@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://gnatta.it',
+  site: 'https://costruzioni-gnatta.it',
   integrations: [
     tailwind(),
   ],
