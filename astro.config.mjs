@@ -6,7 +6,9 @@ export default defineConfig({
   site: 'https://gnatta.it',
   integrations: [
     tailwind(),
-    sitemap(),
+    sitemap({
+      filter: (page) => !page.includes('/404')
+    }),
   ],
   output: 'static',
   build: {
