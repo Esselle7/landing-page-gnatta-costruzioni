@@ -1,0 +1,112 @@
+---
+import siteData from '../data/site.json';
+const { hero } = siteData;
+---
+
+<section
+  class="relative min-h-screen flex items-center justify-center overflow-hidden"
+  style="background: #0c0a09;"
+>
+  <!-- Video background -->
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    disableRemotePlayback
+    class="absolute inset-0 w-full h-full object-cover"
+    style="opacity: 0.45;"
+    poster="/images/hero-poster.jpg"
+  >
+    <source src="/video/drone.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Dark overlay to keep text readable -->
+  <div class="absolute inset-0"
+       style="background: linear-gradient(135deg, rgba(12,10,9,0.75) 0%, rgba(28,21,16,0.60) 50%, rgba(12,10,9,0.75) 100%);">
+  </div>
+
+  <!-- Decorative grid lines over video -->
+  <div class="absolute inset-0 opacity-5 pointer-events-none"
+    style="background-image: linear-gradient(#c8832a 1px, transparent 1px), linear-gradient(90deg, #c8832a 1px, transparent 1px);
+           background-size: 60px 60px;">
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-24">
+    <div class="max-w-4xl">
+      <!-- Eyebrow -->
+      <div class="hero-eyebrow flex items-center gap-4 mb-8 opacity-0"
+           style="animation: fadeUp 0.7s 0.2s ease forwards;">
+        <span class="block w-12 h-px bg-brand-500"></span>
+        <span class="font-body text-xs tracking-widest uppercase text-brand-400">
+          Impresa Edile dal 2000
+        </span>
+      </div>
+
+      <!-- Headline -->
+      <h1
+        class="font-display text-5xl sm:text-6xl md:text-8xl lg:text-9xl text-stone-100 font-light leading-none mb-8 opacity-0"
+        style="animation: fadeUp 0.9s 0.4s ease forwards;"
+      >
+        {hero.headline.split('\n').map((line: string, i: number) => (
+          <span class:list={['block', i === 1 ? 'text-brand-400 italic' : '']}>
+            {line}
+          </span>
+        ))}
+      </h1>
+
+      <!-- Subheadline -->
+      <p
+        class="font-body text-lg text-stone-300 max-w-2xl leading-relaxed mb-12 opacity-0"
+        style="animation: fadeUp 0.8s 0.6s ease forwards;"
+      >
+        {hero.subheadline}
+      </p>
+
+      <!-- CTAs -->
+      <div
+        class="flex flex-col sm:flex-row gap-4 opacity-0"
+        style="animation: fadeUp 0.8s 0.8s ease forwards;"
+      >
+        <a href={hero.ctaPrimary.href} class="btn-primary">
+          {hero.ctaPrimary.label}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href={hero.ctaSecondary.href} class="btn-outline">
+          {hero.ctaSecondary.label}
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-0"
+         style="animation: fadeIn 1s 1.2s ease forwards;">
+      <span class="font-body text-xs tracking-widest uppercase text-stone-500">Scroll</span>
+      <div class="w-px h-12 bg-gradient-to-b from-stone-500 to-transparent relative overflow-hidden">
+        <div class="absolute top-0 w-full h-1/2 bg-brand-500"
+             style="animation: scrollDot 2s ease-in-out infinite;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom fade -->
+  <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-stone-950 to-transparent pointer-events-none"></div>
+</section>
+
+<style>
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes scrollDot {
+    0%   { top: -50%; }
+    100% { top: 150%; }
+  }
+</style>

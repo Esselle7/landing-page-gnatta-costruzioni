@@ -1,0 +1,148 @@
+[
+  {
+    "id": "residenza-verde",
+    "title": "Residenza Verde",
+    "location": "Solbiate con Cagno, CO",
+    "status": "in-vendita",
+    "statusLabel": "In Vendita",
+    "type": "Palazzina Residenziale",
+    "description": "Elegante complesso residenziale immerso nel verde, con appartamenti di diverse metrature e finiture di pregio. Classe energetica A+.",
+    "longDescription": "Residenza Verde è un progetto esclusivo che reinterpreta il concetto di abitare in armonia con la natura. Ogni unità è progettata per massimizzare la luce naturale e offrire spazi fluidi e confortevoli. Le finiture sono selezionate tra i migliori brand del settore.",
+    "workProgress": 75,
+    "workProgressLabel": "Struttura completata — finiture in corso",
+    "availableFrom": "Primavera 2025",
+    "pdfUrl": "/pdf/residenza-verde-planimetrie.pdf",
+    "features": [
+      "Classe energetica A+",
+      "Impianto domotico integrato",
+      "Pannelli fotovoltaici",
+      "Parcheggi privati",
+      "Giardino condominiale",
+      "Ascensore panoramico"
+    ],
+    "units": [
+      {
+        "type": "Bilocale",
+        "size": "65 mq",
+        "floor": "Piano 1",
+        "exposure": "Sud-Est",
+        "balcony": "Terrazzo 12 mq",
+        "available": true
+      },
+      {
+        "type": "Trilocale",
+        "size": "95 mq",
+        "floor": "Piano 2",
+        "exposure": "Sud",
+        "balcony": "Balcone 8 mq",
+        "available": true
+      },
+      {
+        "type": "Quadrilocale",
+        "size": "130 mq",
+        "floor": "Piano 3",
+        "exposure": "Sud-Ovest",
+        "balcony": "Terrazzo 20 mq",
+        "available": false
+      }
+    ],
+    "images": [
+      "https://placehold.co/1200x800/2a1a0a/f5f0e8?text=Residenza+Verde",
+      "https://placehold.co/1200x800/1a2a1a/f5f0e8?text=Interno+1",
+      "https://placehold.co/1200x800/1a1a2a/f5f0e8?text=Interno+2"
+    ],
+    "coverImage": "https://placehold.co/800x600/2a1a0a/f5f0e8?text=Residenza+Verde"
+  },
+  {
+    "id": "villa-collina",
+    "title": "Villa Collina",
+    "location": "Malnate, VA",
+    "status": "in-vendita",
+    "statusLabel": "In Vendita",
+    "type": "Villa Singola",
+    "description": "Splendida villa singola su tre livelli con ampio giardino privato, piscina e vista panoramica sulle prealpi varesine.",
+    "longDescription": "Villa Collina è una dimora di assoluto pregio, progettata da un team di architetti con esperienza internazionale. I 450 mq di superficie abitabile si sviluppano su tre livelli interconnessi da una scenografica scala in vetro e acciaio. Il giardino di 2000 mq include piscina a sfioro e area relax.",
+    "workProgress": 100,
+    "workProgressLabel": "Completata — pronta per la consegna",
+    "availableFrom": "Disponibile subito",
+    "pdfUrl": "",
+    "features": [
+      "450 mq su 3 livelli",
+      "Piscina a sfioro",
+      "Giardino 2000 mq",
+      "Garage doppio",
+      "Cantina vini",
+      "Vista panoramica"
+    ],
+    "units": [
+      {
+        "type": "Villa intera",
+        "size": "450 mq",
+        "floor": "3 livelli",
+        "exposure": "Panoramica",
+        "balcony": "Terrazza 60 mq + giardino",
+        "available": true
+      }
+    ],
+    "images": [
+      "https://placehold.co/1200x800/0a1a2a/f5f0e8?text=Villa+Collina",
+      "https://placehold.co/1200x800/2a0a1a/f5f0e8?text=Piscina",
+      "https://placehold.co/1200x800/0a2a1a/f5f0e8?text=Giardino"
+    ],
+    "coverImage": "https://placehold.co/800x600/0a1a2a/f5f0e8?text=Villa+Collina"
+  },
+  {
+    "id": "parco-varese",
+    "title": "Parco Varese",
+    "location": "Varese, VA",
+    "status": "prossimamente",
+    "statusLabel": "Prossimamente",
+    "type": "Complesso Residenziale",
+    "description": "Nuovo sviluppo residenziale nel cuore di Varese. 12 appartamenti con finiture di lusso, terrazzi privati e posto auto.",
+    "longDescription": "Parco Varese rappresenta il nostro progetto più ambizioso: 12 unità abitative distribuite su 4 piani, con terrazzi abitabili su tutti i lati per massimizzare la vista sulla città e sul lago. I materiali sono selezionati esclusivamente da fornitori europei certificati.",
+    "workProgress": 20,
+    "workProgressLabel": "Fondazioni in corso",
+    "availableFrom": "Autunno 2026",
+    "pdfUrl": "/pdf/parco-varese-planimetrie.pdf",
+    "features": [
+      "12 unità disponibili",
+      "Terrazzi privati",
+      "Domotica Bticino",
+      "Parcheggi interrati",
+      "Depositi bici",
+      "Connessione fibra"
+    ],
+    "units": [
+      {
+        "type": "Trilocale",
+        "size": "90 mq",
+        "floor": "Piano 1-2",
+        "exposure": "Est",
+        "balcony": "Terrazzo 14 mq",
+        "available": true
+      },
+      {
+        "type": "Quadrilocale",
+        "size": "120 mq",
+        "floor": "Piano 3",
+        "exposure": "Sud",
+        "balcony": "Terrazzo 18 mq",
+        "available": true
+      },
+      {
+        "type": "Attico",
+        "size": "160 mq",
+        "floor": "Piano 4",
+        "exposure": "Panoramica 360°",
+        "balcony": "Terrazza abitabile 45 mq",
+        "available": true
+      }
+    ],
+    "images": [
+      "https://placehold.co/1200x800/1a0a2a/f5f0e8?text=Parco+Varese",
+      "https://placehold.co/1200x800/2a1a0a/f5f0e8?text=Render+1",
+      "https://placehold.co/1200x800/0a2a2a/f5f0e8?text=Render+2"
+    ],
+    "coverImage": "https://placehold.co/800x600/1a0a2a/f5f0e8?text=Parco+Varese"
+  }
+]

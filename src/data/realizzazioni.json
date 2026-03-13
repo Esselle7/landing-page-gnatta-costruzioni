@@ -1,0 +1,53 @@
+[
+  {
+    "id": "complesso-aurora",
+    "title": "Complesso Aurora",
+    "location": "Solbiate con Cagno, CO",
+    "year": "2022",
+    "type": "Residenziale",
+    "description": "Complesso di 8 villette a schiera con finiture premium e giardini privati. Consegnato in anticipo rispetto ai tempi previsti.",
+    "images": [
+      "https://placehold.co/1200x800/1a1510/f5f0e8?text=Complesso+Aurora",
+      "https://placehold.co/1200x800/151a10/f5f0e8?text=Interno"
+    ],
+    "coverImage": "https://placehold.co/800x600/1a1510/f5f0e8?text=Complesso+Aurora"
+  },
+  {
+    "id": "palazzina-luna",
+    "title": "Palazzina Luna",
+    "location": "Malnate, VA",
+    "year": "2021",
+    "type": "Residenziale",
+    "description": "Palazzina di 6 appartamenti in classe A energetica. Design contemporaneo con materiali naturali selezionati.",
+    "images": [
+      "https://placehold.co/1200x800/10151a/f5f0e8?text=Palazzina+Luna",
+      "https://placehold.co/1200x800/1a1015/f5f0e8?text=Esterno"
+    ],
+    "coverImage": "https://placehold.co/800x600/10151a/f5f0e8?text=Palazzina+Luna"
+  },
+  {
+    "id": "villa-rosa",
+    "title": "Villa Rosa",
+    "location": "Cagno, CO",
+    "year": "2020",
+    "type": "Ville Private",
+    "description": "Villa privata su due livelli con piscina e ampio parco. Progettazione su misura per il cliente finale.",
+    "images": [
+      "https://placehold.co/1200x800/1a1010/f5f0e8?text=Villa+Rosa",
+      "https://placehold.co/1200x800/101a10/f5f0e8?text=Giardino"
+    ],
+    "coverImage": "https://placehold.co/800x600/1a1010/f5f0e8?text=Villa+Rosa"
+  },
+  {
+    "id": "residenza-nord",
+    "title": "Residenza Nord",
+    "location": "Olgiate Comasco, CO",
+    "year": "2019",
+    "type": "Residenziale",
+    "description": "12 appartamenti in posizione strategica vicino ai servizi. Classe energetica A, riscaldamento a pavimento.",
+    "images": [
+      "https://placehold.co/1200x800/101015/f5f0e8?text=Residenza+Nord"
+    ],
+    "coverImage": "https://placehold.co/800x600/101015/f5f0e8?text=Residenza+Nord"
+  }
+]

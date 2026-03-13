@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design Tokens ─────────────────────────────────── */
+:root {
+  --color-gold:    #c8832a;
+  --color-gold-light: #e8bc7c;
+  --color-dark:    #1c1917;
+  --color-darker:  #0c0a09;
+  --color-cream:   #fdf8f0;
+  --color-cream-2: #f5f0e8;
+  --color-stone:   #78716c;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:   cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Base ───────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}
+
+body {
+  @apply bg-stone-950 text-stone-100 font-body antialiased;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-darker);
+}
+
+/* ─── Typography ─────────────────────────────────────── */
+.font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+.font-body    { font-family: 'Jost', system-ui, sans-serif; }
+
+h1, h2, h3 { @apply font-display; }
+
+/* ─── Scroll Reveal Animations ──────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+}
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger delays */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+
+/* ─── Gold Accent Line ───────────────────────────────── */
+.gold-line {
+  @apply block w-12 h-px bg-brand-500 mb-6;
+}
+
+/* ─── Grain Overlay ──────────────────────────────────── */
+.grain-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.3'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ─── Navbar ─────────────────────────────────────────── */
+.nav-scrolled {
+  @apply bg-stone-950/95 backdrop-blur-sm shadow-lg shadow-black/20;
+}
+
+/* ─── Buttons ────────────────────────────────────────── */
+.btn-primary {
+  @apply inline-flex items-center gap-2 bg-brand-500 text-stone-950 px-8 py-4
+         font-body font-medium text-sm tracking-widest uppercase
+         transition-all duration-300;
+}
+.btn-primary:hover {
+  @apply bg-brand-400 -translate-y-px shadow-lg shadow-brand-500/30;
+}
+
+.btn-outline {
+  @apply inline-flex items-center gap-2 border border-stone-600 text-stone-300 px-8 py-4
+         font-body font-medium text-sm tracking-widest uppercase
+         transition-all duration-300;
+}
+.btn-outline:hover {
+  @apply border-brand-500 text-brand-400 -translate-y-px;
+}
+
+/* ─── Cards ──────────────────────────────────────────── */
+.property-card {
+  @apply relative overflow-hidden bg-stone-900 transition-all duration-500;
+}
+.property-card:hover {
+  @apply -translate-y-2 shadow-2xl shadow-black/40;
+}
+.property-card:hover .card-image {
+  transform: scale(1.05);
+}
+.card-image {
+  @apply w-full h-full object-cover transition-transform duration-700;
+}
+
+/* ─── Stats Counter ──────────────────────────────────── */
+.stat-number {
+  @apply font-display text-6xl text-brand-400 font-light;
+}
+
+/* ─── Form ───────────────────────────────────────────── */
+.form-input {
+  @apply w-full bg-stone-900 border border-stone-700 text-stone-100 px-4 py-3
+         font-body text-sm placeholder:text-stone-500
+         focus:outline-none focus:border-brand-500
+         transition-colors duration-200;
+}
+
+/* ─── Gallery ────────────────────────────────────────── */
+.gallery-thumb {
+  @apply overflow-hidden cursor-pointer;
+}
+.gallery-thumb img {
+  @apply w-full h-full object-cover transition-transform duration-500;
+}
+.gallery-thumb:hover img {
+  transform: scale(1.08);
+}
+
+/* ─── Status Badge ───────────────────────────────────── */
+.badge-vendita    { @apply bg-brand-500 text-stone-950 text-xs px-3 py-1 tracking-wider uppercase font-medium; }
+.badge-prossima   { @apply bg-stone-700 text-stone-300 text-xs px-3 py-1 tracking-wider uppercase font-medium; }
+.badge-venduto    { @apply bg-stone-800 text-stone-500 text-xs px-3 py-1 tracking-wider uppercase font-medium; }
+
+/* ─── Section divider ────────────────────────────────── */
+.section-divider {
+  @apply border-t border-stone-800 my-0;
+}
+
+/* ─── Horizontal scrollbar ───────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-darker); }
+::-webkit-scrollbar-thumb { background: var(--color-gold); border-radius: 3px; }

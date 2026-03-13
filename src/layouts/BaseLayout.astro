@@ -1,0 +1,105 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import siteData from '../data/site.json';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title,
+  description = siteData.company.description,
+  ogImage = '/images/og-default.jpg',
+  noIndex = false,
+} = Astro.props;
+
+const fullTitle = title === siteData.company.name
+  ? title
+  : `${title} | ${siteData.company.name}`;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- SEO -->
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  {noIndex && <meta name="robots" content="noindex" />}
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:site_name" content={siteData.company.name} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": siteData.company.name,
+    "description": siteData.company.description,
+    "url": canonicalURL,
+    "email": siteData.company.email,
+    "telephone": siteData.company.phone,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Solbiate con Cagno",
+      "addressCountry": "IT"
+    }
+  })} />
+
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap"
+  />
+</head>
+<body class="min-h-screen bg-stone-950">
+  <Navbar />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+
+  <!-- Scroll reveal observer -->
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
+    );
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach((el) => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+---
+import siteData from '../data/site.json';
+const { stats } = siteData;
+---
+
+<section class="bg-stone-900 border-y border-stone-800 py-20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-12">
+      {stats.map((stat, i) => (
+        <div class={`reveal text-center delay-${i * 100 + 100}`}>
+          <div class="font-display text-5xl md:text-6xl lg:text-7xl text-brand-400 font-light mb-2">
+            <span
+              class="counter"
+              data-target={stat.value}
+              data-suffix={stat.suffix}
+            >0</span>
+          </div>
+          <div class="gold-line mx-auto"></div>
+          <p class="font-body text-sm tracking-widest uppercase text-stone-400">
+            {stat.label}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  function animateCounter(el: HTMLElement) {
+    const target = parseInt(el.dataset.target || '0', 10);
+    const suffix = el.dataset.suffix || '';
+    const duration = 2000;
+    const start = performance.now();
+
+    function update(now: number) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out expo
+      const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      const current = Math.round(eased * target);
+      el.textContent = current + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const counter = entry.target as HTMLElement;
+          animateCounter(counter);
+          observer.unobserve(counter);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  document.querySelectorAll<HTMLElement>('.counter').forEach((el) => {
+    observer.observe(el);
+  });
+</script>

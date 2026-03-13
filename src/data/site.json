@@ -1,0 +1,65 @@
+{
+  "company": {
+    "name": "Costruzioni Gnatta",
+    "tagline": "Costruiamo il futuro, abitiamo l'eccellenza",
+    "description": "Un'impresa edile che da anni lavora nel settore, specializzata in progettazione e costruzioni residenziali di qualità. Realizziamo ville, palazzine ed edilizia privata con materiali e tecnologie all'avanguardia.",
+    "email": "info@gnatta.it",
+    "phone": "+39 0332 000000",
+    "address": "Via Esempio 1, Solbiate con Cagno (CO)",
+    "piva": "IT00000000000",
+    "socialLinks": {
+      "facebook": "",
+      "instagram": "",
+      "linkedin": ""
+    }
+  },
+  "stats": [
+    { "value": 25, "label": "Anni di Esperienza", "suffix": "+" },
+    { "value": 80, "label": "Progetti Completati", "suffix": "+" },
+    { "value": 350, "label": "Unità Abitative", "suffix": "+" },
+    { "value": 98, "label": "Clienti Soddisfatti", "suffix": "%" }
+  ],
+  "values": [
+    {
+      "icon": "innovation",
+      "title": "Innovazione",
+      "description": "Ricerchiamo costantemente materiali e tecnologie all'avanguardia per garantire le migliori soluzioni costruttive."
+    },
+    {
+      "icon": "quality",
+      "title": "Qualità",
+      "description": "Ogni dettaglio è curato con attenzione maniacale. La qualità non è un optional, è il nostro standard."
+    },
+    {
+      "icon": "trust",
+      "title": "Affidabilità",
+      "description": "Rispettiamo tempi e budget. La nostra parola è una garanzia che si traduce in risultati concreti."
+    },
+    {
+      "icon": "eco",
+      "title": "Sostenibilità",
+      "description": "Progettiamo nel rispetto dell'ambiente, scegliendo soluzioni che riducono l'impatto ecologico."
+    }
+  ],
+  "hero": {
+    "headline": "Costruiamo Spazi\nda Vivere",
+    "subheadline": "Ville, palazzine e residenze di pregio nel cuore della Lombardia. Ogni progetto nasce dalla cura per i dettagli e dalla passione per l'eccellenza.",
+    "ctaPrimary": { "label": "Scopri le Unità", "href": "/unita-in-vendita" },
+    "ctaSecondary": { "label": "I Nostri Lavori", "href": "/realizzazioni" }
+  },
+  "aboutPage": {
+    "title": "Chi Siamo",
+    "intro": "Costruzioni Gnatta è molto più di un'impresa edile: siamo una realtà radicata nel territorio che trasforma sogni in abitazioni di qualità superiore.",
+    "story": "Nata dalla passione per l'edilizia e dalla visione imprenditoriale del suo fondatore, Costruzioni Gnatta ha costruito nel corso degli anni una reputazione solida basata su qualità, innovazione e rispetto per il cliente. Dalla progettazione alla consegna delle chiavi, ogni fase è gestita internamente con la massima cura.",
+    "mission": "La nostra missione è creare abitazioni che migliorino la qualità della vita di chi le abita, coniugando estetica, funzionalità e sostenibilità in ogni progetto.",
+    "approach": "Il nostro approccio è integrato: acquistiamo il terreno, progettiamo, realizziamo e vendiamo direttamente. Questo ci permette di mantenere il controllo totale sulla qualità e di offrire ai nostri clienti la massima trasparenza.",
+    "timeline": [
+      { "year": "2000", "event": "Fondazione dell'azienda" },
+      { "year": "2005", "event": "Primo grande complesso residenziale" },
+      { "year": "2010", "event": "Certificazione energetica classe A" },
+      { "year": "2015", "event": "50 unità abitative consegnate" },
+      { "year": "2020", "event": "Adozione tecnologie smart home" },
+      { "year": "2024", "event": "350+ abitazioni realizzate" }
+    ]
+  }
+}

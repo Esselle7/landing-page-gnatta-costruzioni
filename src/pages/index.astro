@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import StatsCounter from '../components/StatsCounter.astro';
+import ValoriSection from '../components/ValoriSection.astro';
+import PropertyCard from '../components/PropertyCard.astro';
+import RealizzioneCard from '../components/RealizzioneCard.astro';
+import properties from '../data/properties.json';
+import realizzazioni from '../data/realizzazioni.json';
+import siteData from '../data/site.json';
+
+const featuredProperties = properties.slice(0, 3);
+const featuredRealizzazioni = realizzazioni.slice(0, 4);
+---
+
+<BaseLayout title={siteData.company.name} description={siteData.company.description}>
+
+  <!-- HERO -->
+  <Hero />
+
+  <!-- STATS -->
+  <StatsCounter />
+
+  <!-- VALORI -->
+  <ValoriSection />
+
+  <!-- PROPERTIES PREVIEW -->
+  <section class="bg-stone-950 py-28">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <div class="reveal">
+          <span class="gold-line"></span>
+          <h2 class="font-display text-4xl sm:text-5xl md:text-6xl text-stone-100 font-light leading-tight">
+            Unità <em class="text-brand-400 not-italic">in Vendita</em>
+          </h2>
+        </div>
+        <a href="/unita-in-vendita"
+           class="btn-outline reveal delay-200 self-start md:self-auto">
+          Vedi Tutte
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {featuredProperties.map((property, i) => (
+          <div class={`reveal delay-${i * 100 + 100}`}>
+            <PropertyCard {...property} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- REALIZZAZIONI PREVIEW -->
+  <section class="bg-stone-900 py-28">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <div class="reveal">
+          <span class="gold-line"></span>
+          <h2 class="font-display text-4xl sm:text-5xl md:text-6xl text-stone-100 font-light leading-tight">
+            Le Nostre <em class="text-brand-400 not-italic">Realizzazioni</em>
+          </h2>
+        </div>
+        <a href="/realizzazioni" class="btn-outline reveal delay-200 self-start md:self-auto">
+          Vedi Tutte
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {featuredRealizzazioni.map((r, i) => (
+          <div class={`reveal delay-${i * 100 + 100}`}>
+            <RealizzioneCard {...r} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="relative py-32 overflow-hidden"
+           style="background: linear-gradient(135deg, #1a1008 0%, #2a1a08 50%, #1a1008 100%);">
+    <div class="absolute inset-0 opacity-5"
+         style="background-image: linear-gradient(#c8832a 1px, transparent 1px), linear-gradient(90deg, #c8832a 1px, transparent 1px);
+                background-size: 40px 40px;">
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <div class="reveal">
+        <span class="gold-line mx-auto"></span>
+        <h2 class="font-display text-5xl md:text-7xl text-stone-100 font-light leading-tight mb-6">
+          Costruiamo<br />
+          <em class="text-brand-400 not-italic">Insieme</em>
+        </h2>
+        <p class="font-body text-stone-400 text-lg max-w-xl mx-auto mb-12">
+          Ogni progetto nasce da un dialogo. Raccontaci il tuo sogno e trasformeremo le tue idee in realtà.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contatti" class="btn-primary">
+            Contattaci Ora
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="/chi-siamo" class="btn-outline">
+            La Nostra Storia
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

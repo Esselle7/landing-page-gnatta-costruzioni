@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import siteData from '../data/site.json';
+const { company } = siteData;
+---
+
+<BaseLayout
+  title="Contatti"
+  description="Contattaci per informazioni sulle unità in vendita, per fissare un appuntamento o per qualsiasi altra richiesta."
+>
+
+  <!-- Header -->
+  <section class="relative pt-40 pb-24"
+           style="background: linear-gradient(135deg, #0c0a09 0%, #1c1510 100%);">
+    <div class="absolute inset-0 opacity-5"
+         style="background-image: linear-gradient(#c8832a 1px, transparent 1px),
+                linear-gradient(90deg, #c8832a 1px, transparent 1px);
+                background-size: 60px 60px;">
+    </div>
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+      <span class="gold-line"></span>
+      <h1 class="font-display text-7xl md:text-8xl text-stone-100 font-light leading-none mb-6">
+        <em class="text-brand-400 not-italic">Parliamo</em>
+      </h1>
+      <p class="font-body text-xl text-stone-400 max-w-2xl">
+        Siamo qui per rispondere a tutte le tue domande. Contattaci e ti risponderemo entro 24 ore.
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="bg-stone-950 py-24">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-16">
+
+        <!-- Info sidebar -->
+        <div class="lg:col-span-2 space-y-10 reveal-left">
+
+          <!-- Contact info -->
+          <div>
+            <span class="gold-line"></span>
+            <h2 class="font-display text-3xl text-stone-100 font-light mb-8">
+              Informazioni
+            </h2>
+
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <div class="w-10 h-10 border border-stone-700 flex items-center justify-center flex-shrink-0">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1.5" class="text-brand-500">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                    <circle cx="12" cy="9" r="2.5"/>
+                  </svg>
+                </div>
+                <div>
+                  <span class="font-body text-xs tracking-widest uppercase text-stone-500 block mb-1">Indirizzo</span>
+                  <p class="font-body text-stone-300">{company.address}</p>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div class="w-10 h-10 border border-stone-700 flex items-center justify-center flex-shrink-0">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1.5" class="text-brand-500">
+                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1.17h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                  </svg>
+                </div>
+                <div>
+                  <span class="font-body text-xs tracking-widest uppercase text-stone-500 block mb-1">Telefono</span>
+                  <a href={`tel:${company.phone}`}
+                     class="font-body text-stone-300 hover:text-brand-400 transition-colors">
+                    {company.phone}
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex gap-4">
+                <div class="w-10 h-10 border border-stone-700 flex items-center justify-center flex-shrink-0">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                       stroke-width="1.5" class="text-brand-500">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                </div>
+                <div>
+                  <span class="font-body text-xs tracking-widest uppercase text-stone-500 block mb-1">Email</span>
+                  <a href={`mailto:${company.email}`}
+                     class="font-body text-stone-300 hover:text-brand-400 transition-colors">
+                    {company.email}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Orari -->
+          <div>
+            <h3 class="font-display text-2xl text-stone-100 font-light mb-6">Orari</h3>
+            <div class="space-y-3">
+              {[
+                { giorni: 'Lunedì – Venerdì', ore: '9:00 – 18:00' },
+                { giorni: 'Sabato', ore: '9:00 – 12:30' },
+                { giorni: 'Domenica', ore: 'Chiuso' },
+              ].map(({ giorni, ore }) => (
+                <div class="flex justify-between items-center py-3 border-b border-stone-800">
+                  <span class="font-body text-sm text-stone-400">{giorni}</span>
+                  <span class="font-body text-sm text-stone-300">{ore}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Map placeholder -->
+          <div class="bg-stone-900 border border-stone-800 h-48 flex items-center justify-center">
+            <p class="font-body text-xs text-stone-500 tracking-wider">
+              Mappa · {company.address}
+            </p>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="lg:col-span-3 reveal-right">
+          <span class="gold-line"></span>
+          <h2 class="font-display text-3xl text-stone-100 font-light mb-8">
+            Scrivici un Messaggio
+          </h2>
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ImageGallery from '../../components/ImageGallery.astro';
+import realizzazioni from '../../data/realizzazioni.json';
+
+export function getStaticPaths() {
+  return realizzazioni.map((r) => ({
+    params: { id: r.id },
+    props: { realizzazione: r },
+  }));
+}
+
+const { realizzazione } = Astro.props;
+const otherProjects = realizzazioni.filter((r) => r.id !== realizzazione.id).slice(0, 2);
+---
+
+<BaseLayout
+  title={realizzazione.title}
+  description={realizzazione.description}
+  ogImage={realizzazione.coverImage}
+>
+
+  <!-- Back link -->
+  <div class="pt-28 pb-6 bg-stone-950">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <a href="/realizzazioni"
+         class="inline-flex items-center gap-2 font-body text-xs tracking-widest uppercase
+                text-stone-500 hover:text-brand-400 transition-colors duration-200">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Tutte le Realizzazioni
+      </a>
+    </div>
+  </div>
+
+  <section class="bg-stone-950 pb-28">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+      <!-- Header -->
+      <div class="mb-12 reveal">
+        <span class="font-body text-xs tracking-widest uppercase text-brand-400 mb-4 block">
+          {realizzazione.type} · {realizzazione.year}
+        </span>
+        <h1 class="font-display text-5xl md:text-6xl lg:text-7xl text-stone-100 font-light mb-4">
+          {realizzazione.title}
+        </h1>
+        <div class="flex items-center gap-2">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" class="text-brand-500">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+            <circle cx="12" cy="9" r="2.5"/>
+          </svg>
+          <span class="font-body text-stone-400">{realizzazione.location}</span>
+        </div>
+      </div>
+
+      <!-- Gallery -->
+      <div class="mb-16 reveal">
+        <ImageGallery images={realizzazione.images} title={realizzazione.title} />
+      </div>
+
+      <!-- Description -->
+      <div class="max-w-3xl reveal">
+        <span class="gold-line"></span>
+        <h2 class="font-display text-3xl text-stone-100 font-light mb-6">Il Progetto</h2>
+        <p class="font-body text-stone-300 text-lg leading-relaxed">
+          {realizzazione.description}
+        </p>
+      </div>
+
+      <!-- Other projects -->
+      {otherProjects.length > 0 && (
+        <div class="mt-24 reveal">
+          <div class="border-t border-stone-800 pt-16 mb-12">
+            <h3 class="font-display text-3xl text-stone-100 font-light">
+              Altri <em class="text-brand-400 not-italic">Progetti</em>
+            </h3>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {otherProjects.map((r) => (
+              <article class="group bg-stone-900 border border-stone-800 hover:border-brand-700
+                              transition-all duration-300">
+                <a href={`/realizzazioni/${r.id}`} class="block">
+                  <div class="h-48 overflow-hidden">
+                    <img src={r.coverImage} alt={r.title}
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                         width="600" height="400" loading="lazy" />
+                  </div>
+                  <div class="p-6">
+                    <span class="font-body text-xs text-brand-500 tracking-widest uppercase">{r.type} · {r.year}</span>
+                    <h4 class="font-display text-2xl text-stone-100 font-light mt-1
+                               group-hover:text-brand-400 transition-colors duration-300">
+                      {r.title}
+                    </h4>
+                  </div>
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      )}
+
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import RealizzioneCard from '../../components/RealizzioneCard.astro';
+import realizzazioni from '../../data/realizzazioni.json';
+---
+
+<BaseLayout
+  title="Realizzazioni"
+  description="I nostri progetti completati: complessi residenziali, ville e palazzine realizzati con passione e precisione."
+>
+
+  <!-- Header -->
+  <section class="relative pt-40 pb-24"
+           style="background: linear-gradient(135deg, #0c0a09 0%, #1c1510 100%);">
+    <div class="absolute inset-0 opacity-5"
+         style="background-image: linear-gradient(#c8832a 1px, transparent 1px),
+                linear-gradient(90deg, #c8832a 1px, transparent 1px);
+                background-size: 60px 60px;">
+    </div>
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+      <span class="gold-line"></span>
+      <h1 class="font-display text-7xl md:text-8xl text-stone-100 font-light leading-none mb-6">
+        Le Nostre <em class="text-brand-400 not-italic">Realizzazioni</em>
+      </h1>
+      <p class="font-body text-xl text-stone-400 max-w-2xl">
+        Ogni progetto è una storia. Qui raccontiamo le abitazioni che abbiamo costruito e consegnato con orgoglio.
+      </p>
+    </div>
+  </section>
+
+  <!-- Grid -->
+  <section class="bg-stone-950 py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {realizzazioni.map((r, i) => (
+          <div class={`reveal delay-${(i % 3) * 100 + 100}`}>
+            <RealizzioneCard {...r} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,296 @@
+---
+import properties from '../data/properties.json';
+
+// Serialise only fields needed client-side (id + title)
+const propertyList = properties.map((p) => ({ id: p.id, title: p.title }));
+---
+
+<form id="contact-form" class="space-y-6" novalidate>
+
+  <!-- Nome + Email -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label for="nome" class="block font-body text-xs tracking-widest uppercase text-stone-400 mb-2">
+        Nome *
+      </label>
+      <input type="text" id="nome" name="nome" required class="form-input" placeholder="Mario Rossi" />
+      <span class="field-error hidden font-body text-xs text-red-400 mt-1 block"></span>
+    </div>
+    <div>
+      <label for="email" class="block font-body text-xs tracking-widest uppercase text-stone-400 mb-2">
+        Email *
+      </label>
+      <input type="email" id="email" name="email" required class="form-input" placeholder="mario@email.com" />
+      <span class="field-error hidden font-body text-xs text-red-400 mt-1 block"></span>
+    </div>
+  </div>
+
+  <!-- Telefono -->
+  <div>
+    <label for="telefono" class="block font-body text-xs tracking-widest uppercase text-stone-400 mb-2">
+      Telefono
+    </label>
+    <input type="tel" id="telefono" name="telefono" class="form-input" placeholder="+39 333 000 0000" />
+  </div>
+
+  <!-- Interesse (select) -->
+  <div>
+    <label for="interesse" class="block font-body text-xs tracking-widest uppercase text-stone-400 mb-2">
+      Interesse
+    </label>
+    <select id="interesse" name="interesse" class="form-input bg-stone-900">
+      <option value="">Seleziona...</option>
+      <option value="unita-vendita">Informazioni su unità in vendita</option>
+      <option value="informazioni">Informazioni generali</option>
+      <option value="appuntamento">Richiesta appuntamento</option>
+      <option value="altro">Altro</option>
+    </select>
+  </div>
+
+  <!-- Unità selection — visible only when "unita-vendita" is selected -->
+  <div id="unita-section" class="hidden space-y-3">
+    <label class="block font-body text-xs tracking-widest uppercase text-stone-400 mb-3">
+      Unità di interesse
+      <span class="normal-case text-stone-600 ml-2">(puoi selezionarne più di una)</span>
+    </label>
+    <div class="space-y-2" id="unita-checkboxes">
+      {propertyList.map((p) => (
+        <label
+          class="unita-checkbox-label flex items-center gap-3 p-4 border border-stone-800
+                 cursor-pointer hover:border-stone-700 transition-colors duration-200
+                 has-[:checked]:border-brand-600 has-[:checked]:bg-stone-900/60"
+          data-id={p.id}
+        >
+          <input
+            type="checkbox"
+            name="unita[]"
+            value={p.id}
+            data-title={p.title}
+            class="unita-checkbox accent-brand-500 w-4 h-4 flex-shrink-0"
+          />
+          <span class="font-body text-sm text-stone-300">{p.title}</span>
+        </label>
+      ))}
+    </div>
+
+    <!-- Selected units summary tag strip -->
+    <div id="selected-units-summary" class="hidden pt-2">
+      <p class="font-body text-xs text-stone-500 mb-2 tracking-wider uppercase">Unità selezionate:</p>
+      <div id="selected-tags" class="flex flex-wrap gap-2"></div>
+    </div>
+  </div>
+
+  <!-- Data / note appuntamento — visible when "appuntamento" or "unita-vendita" -->
+  <div id="appuntamento-section" class="hidden">
+    <label class="block font-body text-xs tracking-widest uppercase text-stone-400 mb-2">
+      Preferenze per l'appuntamento
+      <span class="normal-case text-stone-600 ml-2">(opzionale)</span>
+    </label>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label for="app-data" class="font-body text-xs text-stone-500 block mb-1">Data preferita</label>
+        <input type="date" id="app-data" name="appuntamento_data" class="form-input" />
+      </div>
+      <div>
+        <label for="app-fascia" class="font-body text-xs text-stone-500 block mb-1">Fascia oraria preferita</label>
+        <select id="app-fascia" name="appuntamento_fascia" class="form-input bg-stone-900">
+          <option value="">Nessuna preferenza</option>
+          <option value="mattina">Mattina (9:00 – 12:00)</option>
+          <option value="pomeriggio">Pomeriggio (14:00 – 18:00)</option>
+        </select>
+      </div>
+    </div>
+    <p class="font-body text-xs text-stone-600 mt-2">
+      Ti ricontatteremo per confermare l'orario esatto in base alle disponibilità.
+    </p>
+  </div>
+
+  <!-- Messaggio -->
+  <div>
+    <label for="messaggio" class="block font-body text-xs tracking-widest uppercase text-stone-400 mb-2">
+      Messaggio *
+    </label>
+    <textarea id="messaggio" name="messaggio" required rows="5"
+              class="form-input resize-none"
+              placeholder="Scrivi il tuo messaggio..."></textarea>
+    <span class="field-error hidden font-body text-xs text-red-400 mt-1 block"></span>
+  </div>
+
+  <!-- Privacy -->
+  <div class="flex items-start gap-3">
+    <input type="checkbox" id="privacy" name="privacy" required class="mt-1 accent-brand-500" />
+    <label for="privacy" class="font-body text-xs text-stone-400 leading-relaxed">
+      Acconsento al trattamento dei dati personali ai sensi del D.Lgs. 196/2003 e del GDPR.
+    </label>
+  </div>
+
+  <!-- Success -->
+  <div id="form-success" class="hidden bg-stone-900 border border-brand-500 p-6">
+    <p class="font-body text-sm text-stone-200">✓ Messaggio inviato! Ti risponderemo entro 24 ore.</p>
+  </div>
+
+  <!-- Error -->
+  <div id="form-error" class="hidden bg-stone-900 border border-red-500 p-6">
+    <p class="font-body text-sm text-red-400">Errore nell'invio. Prova a contattarci direttamente via email.</p>
+  </div>
+
+  <button type="submit" id="submit-btn" class="btn-primary w-full justify-center">
+    <span id="btn-text">Invia Messaggio</span>
+    <span id="btn-loading" class="hidden">Invio in corso...</span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </button>
+</form>
+
+<script>
+  // ─── Elements ───────────────────────────────────────────────────────────────
+  const form         = document.getElementById('contact-form') as HTMLFormElement;
+  const interesseSel = document.getElementById('interesse')     as HTMLSelectElement;
+  const unitaSection = document.getElementById('unita-section')!;
+  const appSection   = document.getElementById('appuntamento-section')!;
+  const checkboxes   = document.querySelectorAll<HTMLInputElement>('.unita-checkbox');
+  const selectedTags = document.getElementById('selected-tags')!;
+  const summary      = document.getElementById('selected-units-summary')!;
+  const submitBtn    = document.getElementById('submit-btn')  as HTMLButtonElement;
+  const btnText      = document.getElementById('btn-text')!;
+  const btnLoading   = document.getElementById('btn-loading')!;
+  const successMsg   = document.getElementById('form-success')!;
+  const errorMsg     = document.getElementById('form-error')!;
+
+  // ─── Show/hide sections based on "interesse" value ──────────────────────────
+  function updateSections() {
+    const val = interesseSel.value;
+    const showUnita = val === 'unita-vendita';
+    const showApp   = val === 'appuntamento' || val === 'unita-vendita';
+
+    unitaSection.classList.toggle('hidden', !showUnita);
+    appSection.classList.toggle('hidden', !showApp);
+
+    // Smooth reveal
+    if (showUnita) unitaSection.style.animation = 'fadeDown 0.3s ease forwards';
+    if (showApp)   appSection.style.animation   = 'fadeDown 0.3s ease forwards';
+  }
+
+  interesseSel.addEventListener('change', updateSections);
+
+  // ─── Update selected-units summary tags ─────────────────────────────────────
+  function updateSummary() {
+    selectedTags.innerHTML = '';
+    let count = 0;
+
+    checkboxes.forEach((cb) => {
+      if (cb.checked) {
+        count++;
+        const tag = document.createElement('span');
+        tag.className = 'inline-flex items-center gap-1.5 bg-stone-800 border border-brand-700 ' +
+                        'text-brand-400 font-body text-xs px-3 py-1.5';
+        tag.textContent = cb.dataset.title ?? cb.value;
+
+        // Remove button
+        const removeBtn = document.createElement('button');
+        removeBtn.type = 'button';
+        removeBtn.innerHTML = '&times;';
+        removeBtn.className = 'ml-1 text-stone-500 hover:text-red-400 transition-colors text-sm leading-none';
+        removeBtn.addEventListener('click', () => {
+          cb.checked = false;
+          // Also uncheck the visual label
+          cb.closest('label')?.classList.remove('border-brand-600');
+          updateSummary();
+        });
+
+        tag.appendChild(removeBtn);
+        selectedTags.appendChild(tag);
+      }
+    });
+
+    summary.classList.toggle('hidden', count === 0);
+  }
+
+  checkboxes.forEach((cb) => {
+    cb.addEventListener('change', updateSummary);
+  });
+
+  // ─── Read URL params and pre-fill form ──────────────────────────────────────
+  function applyUrlParams() {
+    const params = new URLSearchParams(window.location.search);
+    const interesse = params.get('interesse');
+    const unitaId   = params.get('unita');
+
+    if (interesse) {
+      interesseSel.value = interesse;
+      updateSections();
+    }
+
+    if (unitaId) {
+      const cb = document.querySelector<HTMLInputElement>(
+        `.unita-checkbox[value="${unitaId}"]`
+      );
+      if (cb) {
+        cb.checked = true;
+        updateSummary();
+        // Scroll form into view smoothly after a tick
+        setTimeout(() => unitaSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 300);
+      }
+    }
+  }
+
+  applyUrlParams();
+
+  // ─── Form submission ─────────────────────────────────────────────────────────
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    let isValid = true;
+    const requiredFields = form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('[required]');
+
+    requiredFields.forEach((field) => {
+      const errorEl = field.nextElementSibling as HTMLElement;
+      if (!field.value.trim() && field.type !== 'checkbox') {
+        isValid = false;
+        field.classList.add('border-red-500');
+        if (errorEl?.classList.contains('field-error')) {
+          errorEl.textContent = 'Campo obbligatorio';
+          errorEl.classList.remove('hidden');
+        }
+      } else if (field.type === 'checkbox' && !(field as HTMLInputElement).checked) {
+        isValid = false;
+      } else {
+        field.classList.remove('border-red-500');
+        if (errorEl?.classList.contains('field-error')) errorEl.classList.add('hidden');
+      }
+    });
+
+    if (!isValid) return;
+
+    submitBtn.disabled = true;
+    btnText.classList.add('hidden');
+    btnLoading.classList.remove('hidden');
+    successMsg.classList.add('hidden');
+    errorMsg.classList.add('hidden');
+
+    // TODO: replace with real API endpoint / serverless function
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      successMsg.classList.remove('hidden');
+      form.reset();
+      unitaSection.classList.add('hidden');
+      appSection.classList.add('hidden');
+      summary.classList.add('hidden');
+      selectedTags.innerHTML = '';
+    } catch {
+      errorMsg.classList.remove('hidden');
+    } finally {
+      submitBtn.disabled = false;
+      btnText.classList.remove('hidden');
+      btnLoading.classList.add('hidden');
+    }
+  });
+</script>
+
+<style>
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>

@@ -1,0 +1,110 @@
+---
+import siteData from '../data/site.json';
+
+const navLinks = [
+  { label: 'Chi Siamo', href: '/chi-siamo' },
+  { label: 'Unità in Vendita', href: '/unita-in-vendita' },
+  { label: 'Realizzazioni', href: '/realizzazioni' },
+  { label: 'Contatti', href: '/contatti' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+  <nav class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-20">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-3 group">
+      <div class="w-8 h-8 border border-brand-500 flex items-center justify-center
+                  group-hover:bg-brand-500 transition-colors duration-300">
+        <span class="font-display text-brand-400 group-hover:text-stone-950 text-sm font-medium
+                     transition-colors duration-300">G</span>
+      </div>
+      <span class="font-display text-xl text-stone-100 tracking-wide">
+        Costruzioni <span class="text-brand-400">Gnatta</span>
+      </span>
+    </a>
+
+    <!-- Desktop Links -->
+    <ul class="hidden lg:flex items-center gap-10">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class:list={[
+              'font-body text-sm tracking-widest uppercase transition-colors duration-200',
+              currentPath.startsWith(link.href)
+                ? 'text-brand-400'
+                : 'text-stone-400 hover:text-stone-100'
+            ]}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- CTA -->
+    <div class="hidden lg:flex items-center gap-4">
+      <a href="/contatti" class="btn-primary text-xs py-3 px-6">
+        Contattaci
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="menu-toggle"
+      class="lg:hidden flex flex-col gap-1.5 p-2"
+      aria-label="Menu"
+    >
+      <span class="menu-bar block w-6 h-px bg-stone-300 transition-all duration-300"></span>
+      <span class="menu-bar block w-6 h-px bg-stone-300 transition-all duration-300"></span>
+      <span class="menu-bar block w-4 h-px bg-brand-400 transition-all duration-300"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="lg:hidden hidden bg-stone-950/98 backdrop-blur-sm border-t border-stone-800"
+  >
+    <ul class="max-w-7xl mx-auto px-6 py-8 flex flex-col gap-6">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class="font-display text-2xl text-stone-200 hover:text-brand-400 transition-colors"
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+      <li class="pt-4 border-t border-stone-800">
+        <a href="/contatti" class="btn-primary w-full justify-center">
+          Contattaci
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  const navbar = document.getElementById('navbar')!;
+  const menuToggle = document.getElementById('menu-toggle')!;
+  const mobileMenu = document.getElementById('mobile-menu')!;
+
+  // Scroll effect
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      navbar.classList.add('nav-scrolled');
+    } else {
+      navbar.classList.remove('nav-scrolled');
+    }
+  }, { passive: true });
+
+  // Mobile menu toggle
+  menuToggle.addEventListener('click', () => {
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden', isOpen);
+  });
+</script>

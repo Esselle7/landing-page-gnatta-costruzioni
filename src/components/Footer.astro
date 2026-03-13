@@ -1,0 +1,108 @@
+---
+import siteData from '../data/site.json';
+const { company } = siteData;
+---
+
+<footer class="bg-stone-950 border-t border-stone-800">
+  <!-- Main footer -->
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+
+      <!-- Brand -->
+      <div class="lg:col-span-2">
+        <a href="/" class="inline-flex items-center gap-3 mb-6">
+          <div class="w-8 h-8 border border-brand-500 flex items-center justify-center">
+            <span class="font-display text-brand-400 text-sm">G</span>
+          </div>
+          <span class="font-display text-xl text-stone-100">
+            Costruzioni <span class="text-brand-400">Gnatta</span>
+          </span>
+        </a>
+        <p class="font-body text-stone-400 text-sm leading-relaxed max-w-sm">
+          {company.description}
+        </p>
+        <div class="flex gap-4 mt-8">
+          <a href="/contatti" class="btn-primary text-xs py-3">
+            Contattaci
+          </a>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div>
+        <h3 class="font-body text-xs tracking-widest uppercase text-brand-400 mb-6">
+          Navigazione
+        </h3>
+        <ul class="flex flex-col gap-3">
+          {[
+            { label: 'Home', href: '/' },
+            { label: 'Chi Siamo', href: '/chi-siamo' },
+            { label: 'Unità in Vendita', href: '/unita-in-vendita' },
+            { label: 'Realizzazioni', href: '/realizzazioni' },
+            { label: 'Contatti', href: '/contatti' },
+          ].map((link) => (
+            <li>
+              <a href={link.href}
+                 class="font-body text-sm text-stone-400 hover:text-brand-400 transition-colors duration-200">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contacts -->
+      <div>
+        <h3 class="font-body text-xs tracking-widest uppercase text-brand-400 mb-6">
+          Contatti
+        </h3>
+        <ul class="flex flex-col gap-4">
+          <li class="flex gap-3">
+            <span class="text-brand-500 mt-0.5">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                <circle cx="12" cy="9" r="2.5"/>
+              </svg>
+            </span>
+            <span class="font-body text-sm text-stone-400">{company.address}</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-brand-500 mt-0.5">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1.17h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+            </span>
+            <a href={`tel:${company.phone}`}
+               class="font-body text-sm text-stone-400 hover:text-brand-400 transition-colors">
+              {company.phone}
+            </a>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-brand-500 mt-0.5">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </span>
+            <a href={`mailto:${company.email}`}
+               class="font-body text-sm text-stone-400 hover:text-brand-400 transition-colors">
+              {company.email}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="border-t border-stone-800">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="font-body text-xs text-stone-600">
+        &copy; {new Date().getFullYear()} {company.name}. Tutti i diritti riservati.
+      </p>
+      <p class="font-body text-xs text-stone-700">
+        P.IVA {company.piva}
+      </p>
+    </div>
+  </div>
+</footer>

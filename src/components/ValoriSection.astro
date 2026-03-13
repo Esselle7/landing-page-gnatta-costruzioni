@@ -1,0 +1,49 @@
+---
+import siteData from '../data/site.json';
+const { values } = siteData;
+
+const icons: Record<string, string> = {
+  innovation: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
+  quality: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`,
+  trust: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+  eco: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 8C8 10 5.9 16.17 3.82 19.3a1 1 0 001.66 1.12l.84-1.28A2.44 2.44 0 018 18c3.23 0 2.77 3 6 3 4.42 0 8-5 8-9a6 6 0 00-5-5.9z"/></svg>`,
+};
+---
+
+<section class="bg-stone-950 py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <!-- Header -->
+    <div class="max-w-2xl mb-20 reveal">
+      <span class="gold-line"></span>
+      <h2 class="font-display text-4xl sm:text-5xl md:text-6xl text-stone-100 font-light leading-tight mb-6">
+        I Nostri <em class="text-brand-400 not-italic">Valori</em>
+      </h2>
+      <p class="font-body text-stone-400 leading-relaxed">
+        Costruire non è solo un mestiere — è una responsabilità verso chi abiterà gli spazi che creiamo.
+      </p>
+    </div>
+
+    <!-- Cards grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-stone-800">
+      {values.map((value, i) => (
+        <div class={`group bg-stone-950 p-10 hover:bg-stone-900 transition-all duration-500 reveal delay-${i * 100 + 100}`}>
+          <!-- Icon -->
+          <div class="text-brand-500 mb-6 group-hover:text-brand-400 transition-colors duration-300"
+               set:html={icons[value.icon] || icons.quality}>
+          </div>
+
+          <!-- Gold line accent -->
+          <div class="w-8 h-px bg-brand-700 group-hover:w-16 group-hover:bg-brand-500
+                      transition-all duration-500 mb-6"></div>
+
+          <h3 class="font-display text-2xl text-stone-100 font-light mb-4">
+            {value.title}
+          </h3>
+          <p class="font-body text-sm text-stone-400 leading-relaxed">
+            {value.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

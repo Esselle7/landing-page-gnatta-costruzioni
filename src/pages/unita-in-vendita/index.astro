@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PropertyCard from '../../components/PropertyCard.astro';
+import properties from '../../data/properties.json';
+---
+
+<BaseLayout
+  title="Unità in Vendita"
+  description="Scopri le nostre unità residenziali disponibili: ville, appartamenti e palazzine di pregio nel territorio lombardo."
+>
+
+  <!-- Header -->
+  <section class="relative pt-40 pb-24"
+           style="background: linear-gradient(135deg, #0c0a09 0%, #1c1510 100%);">
+    <div class="absolute inset-0 opacity-5"
+         style="background-image: linear-gradient(#c8832a 1px, transparent 1px),
+                linear-gradient(90deg, #c8832a 1px, transparent 1px);
+                background-size: 60px 60px;">
+    </div>
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+      <span class="gold-line"></span>
+      <h1 class="font-display text-7xl md:text-8xl text-stone-100 font-light leading-none mb-6">
+        Unità in <em class="text-brand-400 not-italic">Vendita</em>
+      </h1>
+      <p class="font-body text-xl text-stone-400 max-w-2xl">
+        Residenze di pregio progettate con cura per chi non scende a compromessi sulla qualità.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filter bar -->
+  <div class="bg-stone-900 border-b border-stone-800 sticky top-20 z-40">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex items-center gap-6 overflow-x-auto">
+      <span class="font-body text-xs tracking-widest uppercase text-stone-500 flex-shrink-0">Filtra:</span>
+      {['Tutti', 'In Vendita', 'Prossimamente'].map((f) => (
+        <button
+          class="filter-btn font-body text-xs tracking-widest uppercase px-4 py-2 border
+                 border-transparent text-stone-400 hover:text-stone-100 hover:border-stone-700
+                 transition-all duration-200 flex-shrink-0 whitespace-nowrap"
+          data-filter={f === 'Tutti' ? 'all' : f.toLowerCase().replace(' ', '-')}
+        >
+          {f}
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <!-- Grid -->
+  <section class="bg-stone-950 py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="properties-grid">
+        {properties.map((property, i) => (
+          <div
+            class={`reveal delay-${i * 100 + 100} property-item`}
+            data-status={property.status}
+          >
+            <PropertyCard {...property} />
+          </div>
+        ))}
+      </div>
+
+      {properties.length === 0 && (
+        <div class="text-center py-20">
+          <p class="font-display text-3xl text-stone-600 font-light">
+            Nessuna unità disponibile al momento.
+          </p>
+          <p class="font-body text-stone-500 mt-4">Contattaci per essere aggiornato sulle prossime disponibilità.</p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-stone-900 border-t border-stone-800 py-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <h3 class="font-display text-3xl text-stone-100 font-light mb-4">
+        Non trovi quello che cerchi?
+      </h3>
+      <p class="font-body text-stone-400 mb-8">
+        Parliaci del progetto dei tuoi sogni. Possiamo costruirlo su misura per te.
+      </p>
+      <a href="/contatti" class="btn-primary">
+        Contattaci
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const items = document.querySelectorAll<HTMLElement>('.property-item');
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter!;
+
+      filterBtns.forEach((b) => b.classList.remove('border-brand-500', 'text-brand-400'));
+      btn.classList.add('border-brand-500', 'text-brand-400');
+
+      items.forEach((item) => {
+        if (filter === 'all' || item.dataset.status === filter) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Set default active
+  filterBtns[0]?.classList.add('border-brand-500', 'text-brand-400');
+</script>
