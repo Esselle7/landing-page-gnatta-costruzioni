@@ -272,7 +272,16 @@ const propertyList = properties.map((p) => ({ id: p.id, title: p.title }));
     try {
           const formData = new FormData(form);
 
-          const data = Object.fromEntries(formData.entries());
+          const data: Record<string, any> = {};
+          formData.forEach((value, key) => {
+            if (key === "unita[]") {
+              // se non esiste ancora, inizializza array
+              if (!data[key]) data[key] = [];
+              data[key].push(value); // aggiungi tutti i valori selezionati
+            } else {
+              data[key] = value;
+            }
+          });
 
           const res = await fetch("/api/contact", {
             method: "POST",
