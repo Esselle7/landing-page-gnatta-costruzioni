@@ -1,0 +1,7 @@
+name = "landing-site"
+compatibility_date = "2024-12-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "contatti-sito"
+database_id = "4700db72-62f6-4408-8958-532675efa71e"

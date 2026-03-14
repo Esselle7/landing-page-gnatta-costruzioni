@@ -1,1 +1,8 @@
 dist/
+db/
+.wrangler/
+.astro/
+ARCHITECTURE.md
+DEVELOPER-GUIDE.md
+GUIDA-CONTENUTI.md
+node_modules
