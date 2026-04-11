@@ -24,13 +24,14 @@
       {
         "id": "residenza-verde-trilocale-1",
         "title": "Trilocale con Giardino",
-        "description": "Trilocale moderno e luminoso, caratterizzato da un open space che unisce zona living e cucina in un ambiente accogliente e funzionale. La soluzione comprende due comodi servizi e un portico che si affaccia sul giardino privato. Completano la proprietà un box doppio, una cantina e un posto auto coperto, offrendo comodità e spazio aggiuntivo per ogni esigenza. Ogni appartamento può essere personalizzaTerrazzo 20 mqto nelle finiture così da rispecchiare pienamente lo stile e le esigenze di chi lo abita",
+        "description": "Trilocale moderno e luminoso, caratterizzato da un open space che unisce zona living e cucina in un ambiente accogliente e funzionale. La soluzione comprende due comodi servizi e un portico che si affaccia sul giardino privato. Completano la proprietà un box doppio, una cantina e un posto auto coperto, offrendo comodità e spazio aggiuntivo per ogni esigenza. Ogni appartamento può essere personalizzato nelle finiture così da rispecchiare pienamente lo stile e le esigenze di chi lo abita",
         "type": "Trilocale",
         "size": "88 mq",
         "floor": "Terra",
         "pert": "Box doppio 40mq\nCantina 8mq\nPosto auto coperto",
         "balcony": "Porticato 12 mq\nGiardino 240 mq",
         "available": true,
+        "price": "365.000 €",
         "images": [
           "/images/INVENDITA/Albiolo/alb_V2-01 VILLA.jpg"
         ]
@@ -38,13 +39,14 @@
       {
         "id": "residenza-verde-trilocale-2",
         "title": "Trilocale con Balcone",
-        "description": "Appartamento al primo piano con ampio balcone panoramico affacciato sul paesaggio collinare. Luminoso e silenzioso, con vista aperta sulle montagne.",
+        "description": "Trilocale moderno e luminoso, caratterizzato da un open space che unisce zona living e cucina in un ambiente accogliente e funzionale. La soluzione comprende due comodi servizi e un balcone spazioso affacciato su una vista aperta. Completano la proprietà un box doppio, una cantina e un posto auto coperto, offrendo comodità e spazio aggiuntivo per ogni esigenza. Ogni appartamento può essere personalizzato nelle finiture così da rispecchiare pienamente lo stile e le esigenze di chi lo abita",
         "type": "Trilocale",
         "size": "88 mq",
         "floor": "Primo",
         "pert": "Box doppio 40mq\nCantina 8mq\nPosto auto coperto",
         "balcony": "Balcone 28 mq",
-        "available": true
+        "available": true,
+        "price": "365.000 €"
       },
       {
         "id": "residenza-verde-quadrilocale-1",
