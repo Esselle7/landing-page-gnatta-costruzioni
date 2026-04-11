@@ -288,12 +288,7 @@ const pageTitle = (unit.title ?? unit.type) + ' — ' + property.title;
         </a>
 
         <!-- CTA phone -->
-        <a href="tel:+390332000000" class="ud-cta-secondary">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.62a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-          </svg>
-          Chiama ora
-        </a>
+        
 
         <!-- Back to property -->
         <a href={`/unita-in-vendita/${property.id}`} class="ud-cta-ghost">
@@ -476,7 +471,7 @@ const pageTitle = (unit.title ?? unit.type) + ' — ' + property.title;
   /* Top bar */
   .ud-topbar {
     position: absolute;
-    top: 0;
+    top: 80px;
     left: 0;
     right: 0;
     z-index: 20;
@@ -1238,4 +1233,4 @@ const pageTitle = (unit.title ?? unit.type) + ' — ' + property.title;
 </script>
 
 <!-- Image data for JS -->
-<script id="ud-images-data" type="application/json" set:text={JSON.stringify(images)} />
+<script id="ud-images-data" type="application/json" set:html={JSON.stringify(images)} />

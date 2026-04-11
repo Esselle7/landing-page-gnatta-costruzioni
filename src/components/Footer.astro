@@ -10,14 +10,16 @@ const { company } = siteData;
 
       <!-- Brand -->
       <div class="lg:col-span-2">
-        <a href="/" class="inline-flex items-center gap-3 mb-6">
-          <div class="w-8 h-8 border border-brand-500 flex items-center justify-center">
-            <span class="font-display text-brand-400 text-sm">G</span>
-          </div>
-          <span class="font-display text-xl text-stone-100">
-            Costruzioni <span class="text-brand-400">Gnatta</span>
-          </span>
-        </a>
+        <a href="/" class="flex items-center gap-3 group">
+  <img
+    src="/images/logo.png"
+    alt="Costruzioni Gnatta"
+    class="h-10 w-auto object-contain"
+  />
+  <span class="font-display text-xl text-stone-100 tracking-wide">
+    Costruzioni <span class="text-brand-400">Gnatta</span>
+  </span>
+</a>
         <p class="font-body text-stone-400 text-sm leading-relaxed max-w-sm">
           {company.description}
         </p>
