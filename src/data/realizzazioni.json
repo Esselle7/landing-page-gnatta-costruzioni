@@ -19,12 +19,12 @@
     ],
     "units": [],
     "images": [
-      "../../public/images/REALIZZAZIONI/Bizzarone/IMG_0111.jpg",
-      "../../public/images/REALIZZAZIONI/Bizzarone/IMG_0113.jpg",
-      "../../public/images/REALIZZAZIONI/Bizzarone/IMG_0117.jpg",
-      "../../public/images/REALIZZAZIONI/Bizzarone/IMG_0119.jpg"
+      "/images/REALIZZAZIONI/Bizzarone/IMG_0111.jpg",
+      "/images/REALIZZAZIONI/Bizzarone/IMG_0113.jpg",
+      "/images/REALIZZAZIONI/Bizzarone/IMG_0117.jpg",
+      "/images/REALIZZAZIONI/Bizzarone/IMG_0119.jpg"
     ],
-    "coverImage": "../../public/images/REALIZZAZIONI/Bizzarone/IMG_0111.jpg"
+    "coverImage": "/images/REALIZZAZIONI/Bizzarone/IMG_0111.jpg"
   },
   {
     "id": "uggiate-piazza-repubblica",
@@ -46,10 +46,10 @@
     ],
     "units": [],
     "images": [
-      "../../public/images/REALIZZAZIONI/Uggiate - Piazza Repubblica/DJI_0059.jpg",
-      "../../public/images/REALIZZAZIONI/Uggiate - Piazza Repubblica/DJI_0061.jpg"
+      "/images/REALIZZAZIONI/Uggiate - Piazza Repubblica/DJI_0059.jpg",
+      "/images/REALIZZAZIONI/Uggiate - Piazza Repubblica/DJI_0061.jpg"
     ],
-    "coverImage": "../../public/images/REALIZZAZIONI/Uggiate - Piazza Repubblica/DJI_0059.jpg"
+    "coverImage": "/images/REALIZZAZIONI/Uggiate - Piazza Repubblica/DJI_0059.jpg"
   },
   {
     "id": "uggiate-via-roma",
@@ -70,10 +70,10 @@
     ],
     "units": [],
     "images": [
-      "../../public/images/REALIZZAZIONI/Uggiate - Via Roma/DJI_0048.jpg",
-      "../../public/images/REALIZZAZIONI/Uggiate - Via Roma/DJI_0050.jpg"
+      "/images/REALIZZAZIONI/Uggiate - Via Roma/DJI_0048.jpg",
+      "/images/REALIZZAZIONI/Uggiate - Via Roma/DJI_0050.jpg"
     ],
-    "coverImage": "../../public/images/REALIZZAZIONI/Uggiate - Via Roma/DJI_0048.jpg"
+    "coverImage": "/images/REALIZZAZIONI/Uggiate - Via Roma/DJI_0048.jpg"
   },
   {
     "id": "uggiate-via-somazzo",
@@ -95,14 +95,14 @@
     ],
     "units": [],
     "images": [
-      "../../public/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0024.jpg",
-      "../../public/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0026.jpg",
-      "../../public/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0029.jpg",
-      "../../public/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0031.jpg",
-      "../../public/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0033.jpg",
-      "../../public/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0038.jpg"
+      "/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0024.jpg",
+      "/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0026.jpg",
+      "/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0029.jpg",
+      "/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0031.jpg",
+      "/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0033.jpg",
+      "/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0038.jpg"
     ],
-    "coverImage": "../../public/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0024.jpg"
+    "coverImage": "/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0024.jpg"
   },
   {
     "id": "uggiate-via-sturzo",
@@ -123,14 +123,14 @@
     ],
     "units": [],
     "images": [
-      "../../public/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0062.jpg",
-      "../../public/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0064.jpg",
-      "../../public/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0065.jpg",
-      "../../public/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0067.jpg",
-      "../../public/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0068.jpg",
-      "../../public/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0070.jpg"
+      "/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0062.jpg",
+      "/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0064.jpg",
+      "/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0065.jpg",
+      "/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0067.jpg",
+      "/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0068.jpg",
+      "/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0070.jpg"
     ],
-    "coverImage": "../../public/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0062.jpg"
+    "coverImage": "/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0062.jpg"
   },
   {
     "id": "valmorea",
@@ -151,11 +151,11 @@
     ],
     "units": [],
     "images": [
-      "../../public/images/REALIZZAZIONI/Valmorea/DJI_0087.jpg",
-      "../../public/images/REALIZZAZIONI/Valmorea/DJI_0088.jpg",
-      "../../public/images/REALIZZAZIONI/Valmorea/DJI_0094.jpg"
+      "/images/REALIZZAZIONI/Valmorea/DJI_0087.jpg",
+      "/images/REALIZZAZIONI/Valmorea/DJI_0088.jpg",
+      "/images/REALIZZAZIONI/Valmorea/DJI_0094.jpg"
     ],
-    "coverImage": "../../public/images/REALIZZAZIONI/Valmorea/DJI_0087.jpg"
+    "coverImage": "/images/REALIZZAZIONI/Valmorea/DJI_0087.jpg"
   },
   {
     "id": "vedano-olona",
@@ -176,11 +176,11 @@
     ],
     "units": [],
     "images": [
-      "../../public/images/REALIZZAZIONI/Vedano Olona/20180112_144142.jpg",
-      "../../public/images/REALIZZAZIONI/Vedano Olona/20180112_144233.jpg",
-      "../../public/images/REALIZZAZIONI/Vedano Olona/IMG_0431 vedano.jpg",
-      "../../public/images/REALIZZAZIONI/Vedano Olona/IMG_0432 vedano.jpg"
+      "/images/REALIZZAZIONI/Vedano Olona/20180112_144142.jpg",
+      "/images/REALIZZAZIONI/Vedano Olona/20180112_144233.jpg",
+      "/images/REALIZZAZIONI/Vedano Olona/IMG_0431 vedano.jpg",
+      "/images/REALIZZAZIONI/Vedano Olona/IMG_0432 vedano.jpg"
     ],
-    "coverImage": "../../public/images/REALIZZAZIONI/Vedano Olona/20180112_144142.jpg"
+    "coverImage": "/images/REALIZZAZIONI/Vedano Olona/20180112_144142.jpg"
   }
 ]

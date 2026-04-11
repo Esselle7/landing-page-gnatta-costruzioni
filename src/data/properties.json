@@ -32,7 +32,7 @@
         "balcony": "Porticato 12 mq\nGiardino 240 mq",
         "available": true,
         "images": [
-          "../../public/images/INVENDITA/Albiolo/alb_V2-01 VILLA.jpg"
+          "/images/INVENDITA/Albiolo/alb_V2-01 VILLA.jpg"
         ]
       },
       {
@@ -81,15 +81,15 @@
       }
     ],
     "images": [
-      "../../public/images/INVENDITA/Albiolo/alb_V2-01 VILLA.jpg",
-      "../../public/images/INVENDITA/Albiolo/alb_V3-00 appartamenti.jpg",
-      "../../public/images/INVENDITA/Albiolo/Alb_V4-01 VILLA.jpg",
-      "../../public/images/INVENDITA/Albiolo/Alb_V5-00 appartamenti.jpg",
-      "../../public/images/INVENDITA/Albiolo/Alb_V6-00 3D appartamenti.jpg",
-      "../../public/images/INVENDITA/Albiolo/Alb_V7-00 3D.jpg",
-      "../../public/images/INVENDITA/Albiolo/Alb_V8-00 3D.jpg"
+      "/images/INVENDITA/Albiolo/alb_V2-01 VILLA.jpg",
+      "/images/INVENDITA/Albiolo/alb_V3-00 appartamenti.jpg",
+      "/images/INVENDITA/Albiolo/Alb_V4-01 VILLA.jpg",
+      "/images/INVENDITA/Albiolo/Alb_V5-00 appartamenti.jpg",
+      "/images/INVENDITA/Albiolo/Alb_V6-00 3D appartamenti.jpg",
+      "/images/INVENDITA/Albiolo/Alb_V7-00 3D.jpg",
+      "/images/INVENDITA/Albiolo/Alb_V8-00 3D.jpg"
     ],
-    "coverImage": "../../public/images/INVENDITA/Albiolo/alb_V1-01 appartamenti.jpg"
+    "coverImage": "/images/INVENDITA/Albiolo/alb_V1-01 appartamenti.jpg"
   },
   {
     "id": "parco-varese",
