@@ -2,7 +2,7 @@
   {
     "id": "bizzarone",
     "title": "Bizzarone",
-    "location": "MANCA VIA",
+    "location": "Via Cavour",
     "status": "completato",
     "statusLabel": "Realizzato",
     "type": "Complesso Residenziale",
@@ -135,7 +135,7 @@
   {
     "id": "valmorea",
     "title": "Valmorea",
-    "location": "MANCA LA VIA",
+    "location": "Via Roma",
     "status": "completato",
     "statusLabel": "Realizzato",
     "type": "Complesso Residenziale",
@@ -160,7 +160,7 @@
   {
     "id": "vedano-olona",
     "title": "Vedano Olona",
-    "location": "MANCA VIA",
+    "location": "Via Bologna",
     "status": "completato",
     "statusLabel": "Realizzato",
     "type": "Complesso Residenziale",
