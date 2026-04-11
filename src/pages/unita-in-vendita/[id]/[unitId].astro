@@ -1,0 +1,1241 @@
+---
+/**
+ * PAGINA DETTAGLIO SINGOLA UNITÀ
+ * Path: src/pages/unita-in-vendita/[id]/[unitId].astro
+ *
+ * INTEGRAZIONE (leggi fino in fondo):
+ *
+ * 1. Crea la cartella: src/pages/unita-in-vendita/[id]/
+ * 2. Sposta il file [id].astro attuale in:
+ *      src/pages/unita-in-vendita/[id]/index.astro
+ * 3. Salva questo file come:
+ *      src/pages/unita-in-vendita/[id]/[unitId].astro
+ *
+ * 4. Nel tuo properties.json ogni unità deve avere un campo "id" univoco, es.:
+ *      { "id": "A1", "title": "Trilocale A1", "type": "Trilocale", ... }
+ *    Se non ce l'ha già, aggiungilo.
+ *
+ * 5. Nelle card del file index.astro (le .unit-card-3d), cambia il link
+ *    da onClick/overlay a un <a href> diretto:
+ *
+ *      {unit.available && (
+ *        <a href={`/unita-in-vendita/${property.id}/${unit.id}`}
+ *           class="unit-card-link-overlay">
+ *          ... contenuto card ...
+ *        </a>
+ *      )}
+ *
+ *    Oppure, se vuoi mantenere il click JS, aggiungi nel script:
+ *      card.addEventListener('click', () => {
+ *        window.location.href = `/unita-in-vendita/${propertyId}/${unit.id}`;
+ *      });
+ *
+ * 6. Nel properties.json, la struttura units deve contenere:
+ *    {
+ *      "id": "A1",
+ *      "title": "Trilocale A1",
+ *      "type": "Trilocale",
+ *      "size": "98 m²",
+ *      "floor": "2° piano",
+ *      "pert": "Box auto + cantina",
+ *      "balcony": "Terrazza 18 m²",
+ *      "price": "€ 320.000",
+ *      "description": "Descrizione breve",
+ *      "longDescription": "Descrizione estesa...",
+ *      "available": true,
+ *      "images": ["/img/unit-a1-1.jpg", "/img/unit-a1-2.jpg", ...]
+ *    }
+ */
+
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import properties from '../../../data/properties.json';
+
+export function getStaticPaths() {
+  const paths: { params: { id: string; unitId: string }; props: any }[] = [];
+  for (const property of properties) {
+    for (const unit of property.units ?? []) {
+      if (unit.id) {
+        paths.push({
+          params: { id: property.id, unitId: unit.id },
+          props:  { property, unit },
+        });
+      }
+    }
+  }
+  return paths;
+}
+
+const { property, unit } = Astro.props;
+
+const contactUrl = `/contatti?interesse=unita&proprieta=${property.id}&unita=${unit.id}&titolo=${encodeURIComponent(unit.title ?? unit.type)}`;
+
+const images: string[] = unit.images ?? [];
+const mainImage  = images[0] ?? property.coverImage ?? '';
+const thumbs     = images.slice(1, 5);
+
+const specs = [
+  { label: 'Tipologia',     value: unit.type,    icon: 'home'    },
+  { label: 'Superficie',    value: unit.size,    icon: 'area'    },
+  { label: 'Piano',         value: unit.floor,   icon: 'levels'  },
+  ...(unit.pert    ? [{ label: 'Pertinenze',    value: unit.pert,    icon: 'key'    }] : []),
+  ...(unit.balcony ? [{ label: 'Spazi esterni', value: unit.balcony, icon: 'sun'    }] : []),
+].filter(s => s.value);
+
+const pageTitle = (unit.title ?? unit.type) + ' — ' + property.title;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={unit.description ?? property.description}
+  ogImage={mainImage}
+>
+
+  <!-- ══════════════════════════════════════════════════════════
+       HERO — fullscreen gallery
+       ══════════════════════════════════════════════════════════ -->
+  <div class="ud-hero" id="ud-hero">
+
+    <!-- Main image -->
+    <div class="ud-hero-main">
+      {mainImage && (
+        <img
+          src={mainImage}
+          alt={unit.title ?? unit.type}
+          class="ud-hero-img"
+          loading="eager"
+          decoding="async"
+          width="1600"
+          height="900"
+        />
+      )}
+      <div class="ud-hero-vignette" aria-hidden="true"></div>
+    </div>
+
+    <!-- Thumbnail strip -->
+    {thumbs.length > 0 && (
+      <div class="ud-thumbs" aria-label="Galleria foto">
+        {thumbs.map((src, i) => (
+          <button
+            class="ud-thumb"
+            data-index={i + 1}
+            aria-label={`Foto ${i + 2}`}
+            type="button"
+          >
+            <img src={src} alt="" loading="lazy" decoding="async" />
+          </button>
+        ))}
+        {images.length > 5 && (
+          <button class="ud-thumb ud-thumb-more" data-open-gallery type="button" aria-label="Vedi tutte le foto">
+            <img src={images[5]} alt="" loading="lazy" decoding="async" />
+            <span class="ud-thumb-more-label">+{images.length - 5}</span>
+          </button>
+        )}
+      </div>
+    )}
+
+    <!-- Top bar overlay -->
+    <div class="ud-topbar">
+      <a href={`/unita-in-vendita/${property.id}`} class="ud-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        {property.title}
+      </a>
+      <div class="ud-topbar-right">
+        {unit.available ? (
+          <span class="ud-badge ud-badge-available">
+            <span class="ud-badge-dot" aria-hidden="true"></span>
+            Disponibile
+          </span>
+        ) : (
+          <span class="ud-badge ud-badge-sold">Venduto</span>
+        )}
+      </div>
+    </div>
+
+    <!-- Hero bottom gradient title -->
+    <div class="ud-hero-caption">
+      <p class="ud-hero-meta">{property.location}</p>
+      <h1 class="ud-hero-title">{unit.title ?? unit.type}</h1>
+    </div>
+
+  </div><!-- /ud-hero -->
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       BODY — two-column layout
+       ══════════════════════════════════════════════════════════ -->
+  <div class="ud-body">
+
+    <!-- ── LEFT: main content ── -->
+    <main class="ud-main" id="ud-main">
+
+      <!-- Price block (mobile: visible here, desktop: in sidebar) -->
+      {unit.price && (
+        <div class="ud-price-banner ud-mobile-only">
+          <span class="ud-price-label">Prezzo</span>
+          <span class="ud-price-val">{unit.price}</span>
+        </div>
+      )}
+
+      <!-- Description -->
+      {(unit.longDescription ?? unit.description) && (
+        <section class="ud-section ud-reveal">
+          <div class="ud-section-label" aria-hidden="true">
+            <span class="ud-line"></span>
+            Descrizione
+          </div>
+          <p class="ud-description">
+            {unit.longDescription ?? unit.description}
+          </p>
+        </section>
+      )}
+
+      <!-- Specs -->
+      <section class="ud-section ud-reveal" style="--delay: 0.1s">
+        <div class="ud-section-label" aria-hidden="true">
+          <span class="ud-line"></span>
+          Caratteristiche
+        </div>
+        <dl class="ud-specs-grid">
+          {specs.map((s) => (
+            <div class="ud-spec-item whitespace-pre-line">
+              <dt class="ud-spec-label">{s.label}</dt>
+              <dd class="ud-spec-value">{s.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <!-- Features list -->
+      {unit.features && unit.features.length > 0 && (
+        <section class="ud-section ud-reveal" style="--delay: 0.18s">
+          <div class="ud-section-label" aria-hidden="true">
+            <span class="ud-line"></span>
+            Dotazioni
+          </div>
+          <ul class="ud-features-list" role="list">
+            {unit.features.map((f: string) => (
+              <li class="ud-feature-item">
+                <svg class="ud-feature-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <!-- Full gallery grid -->
+      {images.length > 1 && (
+        <section class="ud-section ud-reveal" style="--delay: 0.24s">
+          <div class="ud-section-label" aria-hidden="true">
+            <span class="ud-line"></span>
+            Galleria
+          </div>
+          <div class="ud-gallery-grid" id="ud-gallery-grid">
+            {images.map((src, i) => (
+              <button
+                class="ud-gallery-item"
+                data-gallery-open={i}
+                type="button"
+                aria-label={`Apri foto ${i + 1}`}
+              >
+                <img
+                  src={src}
+                  alt={`${unit.title ?? unit.type} — foto ${i + 1}`}
+                  loading={i < 3 ? 'eager' : 'lazy'}
+                  decoding="async"
+                />
+                <div class="ud-gallery-overlay" aria-hidden="true"></div>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+    </main>
+
+    <!-- ── RIGHT: sticky sidebar ── -->
+    <aside class="ud-sidebar" id="ud-sidebar">
+      <div class="ud-sidebar-inner">
+
+        <!-- Price -->
+        {unit.price && (
+          <div class="ud-sidebar-price">
+            <span class="ud-price-label">Prezzo</span>
+            <span class="ud-price-val">{unit.price}</span>
+          </div>
+        )}
+
+        <!-- Quick specs recap -->
+        <div class="ud-sidebar-specs whitespace-pre-line">
+          {specs.slice(0, 4).map((s) => (
+            <div class="ud-sidebar-spec">
+              <span class="ud-sidebar-spec-label">{s.label}</span>
+              <span class="ud-sidebar-spec-value">{s.value}</span>
+            </div>
+          ))}
+        </div>
+
+        <!-- CTA primary -->
+        <a href={contactUrl} class="ud-cta-primary">
+          Richiedi informazioni
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+
+        <!-- CTA phone -->
+        <a href="tel:+390332000000" class="ud-cta-secondary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.62a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          Chiama ora
+        </a>
+
+        <!-- Back to property -->
+        <a href={`/unita-in-vendita/${property.id}`} class="ud-cta-ghost">
+          ← Tutte le unità di {property.title}
+        </a>
+
+      </div>
+    </aside>
+
+  </div><!-- /ud-body -->
+
+
+  <!-- ══════════════════════════════════════════════════════════
+       LIGHTBOX
+       ══════════════════════════════════════════════════════════ -->
+  <div
+    id="ud-lightbox"
+    class="ud-lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Galleria immagini"
+    aria-hidden="true"
+  >
+    <div class="ud-lb-backdrop" id="ud-lb-backdrop"></div>
+
+    <div class="ud-lb-panel">
+
+      <button class="ud-lb-close" id="ud-lb-close" aria-label="Chiudi galleria" type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <button class="ud-lb-prev" id="ud-lb-prev" aria-label="Foto precedente" type="button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+
+      <div class="ud-lb-img-wrap">
+        <img id="ud-lb-img" src="" alt="" class="ud-lb-img" />
+      </div>
+
+      <button class="ud-lb-next" id="ud-lb-next" aria-label="Foto successiva" type="button">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+
+      <div class="ud-lb-counter" id="ud-lb-counter" aria-live="polite"></div>
+
+    </div>
+  </div>
+
+
+</BaseLayout>
+
+
+<!-- ============================================================
+     STYLES
+     ============================================================ -->
+<style>
+  /* ─── DESIGN TOKENS ──────────────────────────────────────── */
+  :root {
+    --gold:        #c8832a;
+    --gold-light:  #d9943a;
+    --gold-dim:    rgba(200, 131, 42, 0.15);
+    --gold-glow:   rgba(200, 131, 42, 0.08);
+    --bg-base:     #080604;
+    --bg-1:        #0f0d0a;
+    --bg-2:        #181410;
+    --bg-3:        #221d17;
+    --text-100:    #f5f0e8;
+    --text-300:    #c4bfb8;
+    --text-500:    #8a847d;
+    --text-700:    #57534e;
+    --border-gold: rgba(200, 131, 42, 0.14);
+    --border-stone:rgba(87, 83, 78, 0.22);
+    --ease:        cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-back:   cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /* ─── HERO ───────────────────────────────────────────────── */
+  .ud-hero {
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    min-height: 560px;
+    max-height: 900px;
+    background: var(--bg-base);
+    overflow: hidden;
+  }
+
+  .ud-hero-main {
+    position: absolute;
+    inset: 0;
+  }
+
+  .ud-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform-origin: center;
+    animation: ud-ken-burns 18s ease-in-out infinite alternate;
+  }
+
+  @keyframes ud-ken-burns {
+    from { transform: scale(1);    }
+    to   { transform: scale(1.06); }
+  }
+
+  .ud-hero-vignette {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top,   rgba(8,6,4,0.95) 0%, rgba(8,6,4,0.3) 40%, transparent 70%),
+      linear-gradient(to right, rgba(8,6,4,0.4)  0%, transparent 50%),
+      linear-gradient(to bottom,rgba(8,6,4,0.5)  0%, transparent 25%);
+  }
+
+  /* Thumb strip */
+  .ud-thumbs {
+    position: absolute;
+    right: 1.5rem;
+    bottom: 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 10;
+  }
+
+  .ud-thumb {
+    width: 68px;
+    height: 48px;
+    border: 1px solid rgba(200,131,42,0.2);
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+    padding: 0;
+    background: var(--bg-base);
+    transition:
+      border-color 0.2s,
+      transform 0.2s var(--ease-back);
+  }
+
+  .ud-thumb:hover {
+    border-color: var(--gold);
+    transform: scale(1.06) translateX(-3px);
+  }
+
+  .ud-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ud-thumb-more {
+    position: relative;
+  }
+
+  .ud-thumb-more img {
+    filter: brightness(0.35);
+  }
+
+  .ud-thumb-more-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body, sans-serif);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    color: var(--text-100);
+    font-weight: 500;
+  }
+
+  /* Top bar */
+  .ud-topbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.75rem 2rem 1.75rem;
+    background: linear-gradient(to bottom, rgba(8,6,4,0.65) 0%, transparent 100%);
+  }
+
+  .ud-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body, sans-serif);
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(196,191,184,0.75);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .ud-back:hover { color: var(--gold); }
+
+  .ud-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-body, sans-serif);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.65rem;
+    border-radius: 1px;
+  }
+
+  .ud-badge-available {
+    color: var(--gold);
+    border: 1px solid rgba(200,131,42,0.35);
+    background: rgba(200,131,42,0.08);
+  }
+
+  .ud-badge-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: ud-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes ud-pulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50%      { opacity:.4; transform:scale(.7); }
+  }
+
+  .ud-badge-sold {
+    color: var(--text-700);
+    border: 1px solid var(--border-stone);
+    background: rgba(87,83,78,0.08);
+  }
+
+  /* Hero caption */
+  .ud-hero-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    padding: 0 2.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .ud-hero-meta {
+    font-family: var(--font-body, sans-serif);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: ud-fade-up 0.7s var(--ease) 0.3s forwards;
+  }
+
+  .ud-hero-title {
+    font-family: var(--font-display, Georgia, serif);
+    font-size: clamp(2.8rem, 7vw, 6rem);
+    font-weight: 300;
+    color: var(--text-100);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: ud-fade-up 0.8s var(--ease) 0.5s forwards;
+  }
+
+  @keyframes ud-fade-up {
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  /* ─── BODY LAYOUT ─────────────────────────────────────────── */
+  .ud-body {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 0;
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+    background: var(--bg-1);
+    align-items: start;
+  }
+
+  /* ─── MAIN CONTENT ────────────────────────────────────────── */
+  .ud-main {
+    padding: 4rem 3rem 0 0;
+    border-right: 1px solid var(--border-gold);
+    min-width: 0;
+  }
+
+  /* Reveal animation */
+  .ud-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  .ud-reveal.is-visible {
+    animation: ud-reveal-in 0.7s var(--ease) var(--delay, 0s) forwards;
+  }
+
+  @keyframes ud-reveal-in {
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  /* Mobile price banner */
+  .ud-mobile-only { display: none; }
+
+  /* Section */
+  .ud-section {
+    margin-bottom: 3.5rem;
+  }
+
+  .ud-section-label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: var(--font-body, sans-serif);
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-700);
+    margin-bottom: 1.5rem;
+  }
+
+  .ud-line {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* Description */
+  .ud-description {
+    font-family: var(--font-body, sans-serif);
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--text-300);
+    margin: 0;
+    max-width: 68ch;
+  }
+
+  /* Specs grid */
+  .ud-specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    border: 1px solid var(--border-gold);
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .ud-spec-item {
+    padding: 1.2rem 1.4rem;
+    border-right: 1px solid var(--border-gold);
+    border-bottom: 1px solid var(--border-gold);
+    background: var(--bg-2);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    transition: background 0.2s;
+  }
+
+  .ud-spec-item:hover {
+    background: var(--bg-3);
+  }
+
+  .ud-spec-item:last-child,
+  .ud-spec-item:nth-last-child(-n+1):nth-child(odd) {
+    border-right: none;
+  }
+
+  .ud-spec-label {
+    font-family: var(--font-body, sans-serif);
+    font-size: 0.57rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-700);
+  }
+
+  .ud-spec-value {
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--text-100);
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  /* Features list */
+  .ud-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border-gold);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .ud-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1.2rem;
+    border-right: 1px solid var(--border-gold);
+    border-bottom: 1px solid var(--border-gold);
+    background: var(--bg-2);
+    font-family: var(--font-body, sans-serif);
+    font-size: 0.82rem;
+    color: var(--text-300);
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .ud-feature-item:hover {
+    background: var(--bg-3);
+    color: var(--text-100);
+  }
+
+  .ud-feature-item:nth-child(2n) { border-right: none; }
+
+  .ud-feature-icon {
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* Gallery grid */
+  .ud-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+  }
+
+  .ud-gallery-item {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    background: var(--bg-base);
+    display: block;
+    border-radius: 1px;
+  }
+
+  .ud-gallery-item:first-child {
+    grid-column: 1 / 3;
+    aspect-ratio: 16/9;
+  }
+
+  .ud-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s var(--ease);
+  }
+
+  .ud-gallery-item:hover img {
+    transform: scale(1.05);
+  }
+
+  .ud-gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(200,131,42,0);
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ud-gallery-item:hover .ud-gallery-overlay {
+    background: rgba(200,131,42,0.08);
+  }
+
+  /* ─── SIDEBAR ─────────────────────────────────────────────── */
+  .ud-sidebar {
+    padding: 4rem 0 0 2.5rem;
+    position: sticky;
+    top: 6rem;
+    align-self: start;
+  }
+
+  .ud-sidebar-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Price in sidebar */
+  .ud-sidebar-price {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 1.5rem 1.5rem 1.25rem;
+    border: 1px solid var(--border-gold);
+    background: var(--bg-2);
+    border-radius: 2px;
+    border-left: 3px solid var(--gold);
+  }
+
+  .ud-price-label {
+    font-family: var(--font-body, sans-serif);
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-700);
+  }
+
+  .ud-price-val {
+    font-family: var(--font-display, Georgia, serif);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 300;
+    color: var(--gold);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  /* Sidebar specs recap */
+  .ud-sidebar-specs {
+    border: 1px solid var(--border-gold);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .ud-sidebar-spec {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.75rem 1.2rem;
+    border-bottom: 1px solid var(--border-gold);
+    background: var(--bg-2);
+    gap: 1rem;
+    transition: background 0.18s;
+  }
+
+  .ud-sidebar-spec:last-child { border-bottom: none; }
+  .ud-sidebar-spec:hover { background: var(--bg-3); }
+
+  .ud-sidebar-spec-label {
+    font-family: var(--font-body, sans-serif);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-700);
+    flex-shrink: 0;
+  }
+
+  .ud-sidebar-spec-value {
+    font-family: var(--font-body, sans-serif);
+    font-size: 0.82rem;
+    color: var(--text-100);
+    text-align: right;
+  }
+
+  /* CTA buttons */
+  .ud-cta-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.9rem 1.5rem;
+    background: var(--gold);
+    color: #080604;
+    font-family: var(--font-body, sans-serif);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 1px;
+    border: 1px solid var(--gold);
+    transition:
+      background 0.22s,
+      box-shadow 0.22s,
+      transform 0.18s var(--ease-back);
+  }
+
+  .ud-cta-primary:hover {
+    background: var(--gold-light);
+    box-shadow: 0 6px 28px rgba(200,131,42,0.38);
+    transform: translateY(-1px);
+  }
+
+  .ud-cta-primary:active { transform: translateY(0); box-shadow: none; }
+
+  .ud-cta-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: transparent;
+    color: var(--text-300);
+    font-family: var(--font-body, sans-serif);
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 1px;
+    border: 1px solid var(--border-stone);
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+
+  .ud-cta-secondary:hover {
+    color: var(--text-100);
+    border-color: rgba(196,191,184,0.4);
+    background: rgba(255,255,255,0.02);
+  }
+
+  .ud-cta-ghost {
+    display: block;
+    text-align: center;
+    font-family: var(--font-body, sans-serif);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-700);
+    text-decoration: none;
+    padding: 0.5rem;
+    transition: color 0.2s;
+  }
+
+  .ud-cta-ghost:hover { color: var(--gold); }
+
+  /* ─── LIGHTBOX ────────────────────────────────────────────── */
+  .ud-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.32s var(--ease);
+  }
+
+  .ud-lightbox[aria-hidden="false"] {
+    pointer-events: all;
+    opacity: 1;
+  }
+
+  .ud-lb-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(4,3,2,0.96);
+    backdrop-filter: blur(20px) saturate(0.4);
+    -webkit-backdrop-filter: blur(20px) saturate(0.4);
+  }
+
+  .ud-lb-panel {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1100px;
+    padding: 0 4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .ud-lb-img-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+  }
+
+  .ud-lb-img {
+    max-width: 100%;
+    max-height: 85svh;
+    object-fit: contain;
+    display: block;
+    border-radius: 2px;
+    transform: scale(0.96);
+    opacity: 0;
+    transition: transform 0.35s var(--ease), opacity 0.35s var(--ease);
+  }
+
+  .ud-lightbox[aria-hidden="false"] .ud-lb-img {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .ud-lb-close {
+    position: absolute;
+    top: -3rem;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,131,42,0.25);
+    background: rgba(8,6,4,0.8);
+    color: var(--text-500);
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s, transform 0.22s var(--ease-back);
+  }
+
+  .ud-lb-close:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+    transform: rotate(90deg) scale(1.1);
+  }
+
+  .ud-lb-prev,
+  .ud-lb-next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,131,42,0.2);
+    background: rgba(8,6,4,0.7);
+    color: var(--text-500);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition:
+      color 0.2s,
+      border-color 0.2s,
+      background 0.2s,
+      transform 0.18s var(--ease-back);
+  }
+
+  .ud-lb-prev:hover,
+  .ud-lb-next:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+    background: rgba(8,6,4,0.95);
+    transform: scale(1.08);
+  }
+
+  .ud-lb-counter {
+    position: absolute;
+    bottom: -2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-body, sans-serif);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-700);
+  }
+
+  /* ─── MOBILE ──────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .ud-body {
+      grid-template-columns: 1fr;
+      padding: 0 1.25rem 4rem;
+    }
+
+    .ud-main {
+      padding: 2.5rem 0 0;
+      border-right: none;
+    }
+
+    .ud-sidebar {
+      padding: 0;
+      position: static;
+      order: -1;
+    }
+
+    .ud-sidebar-inner {
+      padding: 1.5rem 0 0;
+    }
+
+    .ud-mobile-only { display: block; }
+
+    .ud-sidebar-price { display: none; }
+
+    .ud-price-banner {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid var(--border-gold);
+      border-left: 3px solid var(--gold);
+      background: var(--bg-2);
+      border-radius: 0 2px 2px 0;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .ud-hero { height: 70svh; min-height: 460px; }
+
+    .ud-hero-title { font-size: clamp(2rem, 9vw, 3.2rem); }
+
+    .ud-hero-caption { padding: 0 1.25rem 1.75rem; }
+
+    .ud-topbar { padding: 1.25rem 1.25rem; }
+
+    .ud-thumbs {
+      flex-direction: row;
+      right: auto;
+      left: 1.25rem;
+      bottom: 5.5rem;
+    }
+
+    .ud-thumb { width: 52px; height: 38px; }
+
+    .ud-features-list { grid-template-columns: 1fr; }
+
+    .ud-gallery-grid { grid-template-columns: 1fr 1fr; }
+    .ud-gallery-item:first-child { grid-column: 1 / 3; }
+
+    .ud-lb-panel { padding: 0 1rem; }
+    .ud-lb-prev, .ud-lb-next { width: 36px; height: 36px; }
+
+    .ud-specs-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script>
+  /* ─── Scroll reveal ────────────────────────────────────────── */
+  const revealEls = document.querySelectorAll<HTMLElement>('.ud-reveal');
+  const revealObs = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          (entry.target as HTMLElement).classList.add('is-visible');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+  );
+  revealEls.forEach(el => revealObs.observe(el));
+
+  /* ─── Hero thumbnail switcher ──────────────────────────────── */
+  const heroImg  = document.querySelector<HTMLImageElement>('.ud-hero-img');
+  const allSrcs  = JSON.parse(document.getElementById('ud-images-data')?.textContent ?? '[]') as string[];
+
+  document.querySelectorAll<HTMLButtonElement>('.ud-thumb').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (!heroImg) return;
+      const idx = parseInt(btn.dataset.index ?? '0', 10);
+      const src = allSrcs[idx];
+      if (src) {
+        heroImg.style.opacity = '0';
+        heroImg.style.transition = 'opacity 0.3s';
+        setTimeout(() => {
+          heroImg.src = src;
+          heroImg.style.opacity = '1';
+        }, 300);
+      }
+    });
+  });
+
+  /* ─── Lightbox ─────────────────────────────────────────────── */
+  const lb        = document.getElementById('ud-lightbox') as HTMLElement;
+  const lbBackdrop= document.getElementById('ud-lb-backdrop') as HTMLElement;
+  const lbClose   = document.getElementById('ud-lb-close') as HTMLButtonElement;
+  const lbPrev    = document.getElementById('ud-lb-prev') as HTMLButtonElement;
+  const lbNext    = document.getElementById('ud-lb-next') as HTMLButtonElement;
+  const lbImg     = document.getElementById('ud-lb-img') as HTMLImageElement;
+  const lbCounter = document.getElementById('ud-lb-counter') as HTMLElement;
+
+  let lbIndex = 0;
+  let lbImages: string[] = allSrcs;
+  let lbLastFocus: HTMLElement | null = null;
+
+  function lbOpen(index: number): void {
+    if (!lbImages.length) return;
+    lbLastFocus = document.activeElement as HTMLElement;
+    lbIndex = index;
+    lbShow();
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => lbClose.focus(), 60);
+  }
+
+  function lbShow(): void {
+    lbImg.style.opacity = '0';
+    lbImg.style.transform = 'scale(0.96)';
+    setTimeout(() => {
+      lbImg.src = lbImages[lbIndex];
+      lbImg.alt = 'Foto ' + (lbIndex + 1);
+      lbCounter.textContent = (lbIndex + 1) + ' / ' + lbImages.length;
+      lbImg.style.opacity = '1';
+      lbImg.style.transform = 'scale(1)';
+    }, 120);
+  }
+
+  function lbClose_(): void {
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    lbLastFocus?.focus();
+  }
+
+  lbClose.addEventListener('click', lbClose_);
+  lbBackdrop.addEventListener('click', lbClose_);
+  lbPrev.addEventListener('click', () => { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; lbShow(); });
+  lbNext.addEventListener('click', () => { lbIndex = (lbIndex + 1) % lbImages.length; lbShow(); });
+
+  document.addEventListener('keydown', (e: KeyboardEvent) => {
+    if (lb.getAttribute('aria-hidden') === 'true') return;
+    if (e.key === 'Escape') lbClose_();
+    if (e.key === 'ArrowLeft') { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; lbShow(); }
+    if (e.key === 'ArrowRight') { lbIndex = (lbIndex + 1) % lbImages.length; lbShow(); }
+  });
+
+  /* Wire gallery items */
+  document.querySelectorAll<HTMLButtonElement>('[data-gallery-open]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      lbOpen(parseInt(btn.dataset.galleryOpen ?? '0', 10));
+    });
+  });
+
+  /* Wire thumb "more" button */
+  document.querySelector<HTMLButtonElement>('[data-open-gallery]')?.addEventListener('click', () => {
+    lbOpen(5);
+  });
+</script>
+
+<!-- Image data for JS -->
+<script id="ud-images-data" type="application/json" set:text={JSON.stringify(images)} />

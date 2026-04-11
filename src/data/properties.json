@@ -1,95 +1,95 @@
 [
   {
     "id": "residenza-verde",
-    "title": "Residenza Verde",
-    "location": "Solbiate con Cagno, CO",
+    "title": "Albiolo (CO)",
+    "location": "Via delle Piazzole",
     "status": "in-vendita",
     "statusLabel": "In Vendita",
-    "type": "Palazzina Residenziale",
-    "description": "Elegante complesso residenziale immerso nel verde, con appartamenti di diverse metrature e finiture di pregio. Classe energetica A+.",
-    "longDescription": "Residenza Verde è un progetto esclusivo che reinterpreta il concetto di abitare in armonia con la natura. Ogni unità è progettata per massimizzare la luce naturale e offrire spazi fluidi e confortevoli. Le finiture sono selezionate tra i migliori brand del settore.",
+    "type": "Complesso Residenziale",
+    "description": "Complesso residenziale in posizione panoramica e tranquilla, con vista aperta sulle montagne.",
+    "longDescription": "In posizione rialzata e silenziosa con una vista aperta sulle montagne, prende forma un piccolo complesso residenziale composto da quattro appartamenti e da una villetta indipendente. Tutte le unità dispongono di spazi esterni privati, pensati per vivere il paesaggio circostante.",
     "workProgress": 75,
     "workProgressLabel": "Struttura completata — finiture in corso",
     "availableFrom": "Primavera 2025",
     "pdfUrl": "/pdf/residenza-verde-planimetrie.pdf",
     "features": [
-      "Classe energetica A+",
-      "Impianto domotico integrato",
+      "Classe energetica A4",
+      "Impianti autonomi in pompa di calore",
       "Pannelli fotovoltaici",
-      "Parcheggi privati",
-      "Giardino condominiale",
-      "Ascensore panoramico"
+      "Riscaldamento a pavimento",
+      "Impianto di condizionamento",
+      "VMC"
     ],
     "units": [
       {
-        "type": "Bilocale",
-        "size": "65 mq",
-        "floor": "Piano 1",
-        "exposure": "Sud-Est",
-        "balcony": "Terrazzo 12 mq",
-        "available": true
-      },
-      {
+        "id": "residenza-verde-trilocale-1",
+        "title": "Trilocale con Giardino",
+        "description": "Trilocale moderno e luminoso, caratterizzato da un open space che unisce zona living e cucina in un ambiente accogliente e funzionale. La soluzione comprende due comodi servizi e un portico che si affaccia sul giardino privato. Completano la proprietà un box doppio, una cantina e un posto auto coperto, offrendo comodità e spazio aggiuntivo per ogni esigenza. Ogni appartamento può essere personalizzaTerrazzo 20 mqto nelle finiture così da rispecchiare pienamente lo stile e le esigenze di chi lo abita",
         "type": "Trilocale",
-        "size": "95 mq",
-        "floor": "Piano 2",
-        "exposure": "Sud",
-        "balcony": "Balcone 8 mq",
+        "size": "88 mq",
+        "floor": "Terra",
+        "pert": "Box doppio 40mq\nCantina 8mq\nPosto auto coperto",
+        "balcony": "Porticato 12 mq\nGiardino 240 mq",
+        "available": true,
+        "images": [
+          "../../public/images/INVENDITA/Albiolo/alb_V2-01 VILLA.jpg"
+        ]
+      },
+      {
+        "id": "residenza-verde-trilocale-2",
+        "title": "Trilocale con Balcone",
+        "description": "Appartamento al primo piano con ampio balcone panoramico affacciato sul paesaggio collinare. Luminoso e silenzioso, con vista aperta sulle montagne.",
+        "type": "Trilocale",
+        "size": "88 mq",
+        "floor": "Primo",
+        "pert": "Box doppio 40mq\nCantina 8mq\nPosto auto coperto",
+        "balcony": "Balcone 28 mq",
         "available": true
       },
       {
+        "id": "residenza-verde-quadrilocale-1",
+        "title": "Quadrilocale con Giardino",
+        "description": "Ampia soluzione al piano terra con porticato e giardino privato di 250 mq. Quattro locali ben distribuiti con doppi servizi e finiture di pregio.",
         "type": "Quadrilocale",
-        "size": "130 mq",
-        "floor": "Piano 3",
-        "exposure": "Sud-Ovest",
-        "balcony": "Terrazzo 20 mq",
+        "size": "105 mq",
+        "floor": "Terra",
+        "pert": "Box doppio 40mq\nCantina 8mq\nPosto auto coperto",
+        "balcony": "Porticato 24 mq\nGiardino 250 mq",
+        "available": false
+      },
+      {
+        "id": "residenza-verde-quadrilocale-2",
+        "title": "Quadrilocale con Balcone",
+        "description": "Quattro locali al primo piano con balcone vivibile da 24 mq. Distribuzione ottimale degli spazi, doppi servizi e classe energetica A4.",
+        "type": "Quadrilocale",
+        "size": "105 mq",
+        "floor": "Primo",
+        "pert": "Box doppio 40mq\nCantina 8mq\nPosto auto coperto",
+        "balcony": "Balcone 24 mq",
+        "available": false
+      },
+      {
+        "id": "residenza-verde-villa-1",
+        "title": "Villa Singola",
+        "description": "Villetta indipendente su due livelli con giardino privato, portico e terrazza. La soluzione più esclusiva del complesso, con massima privacy e autonomia.",
+        "type": "Villa Singola",
+        "size": "144 mq",
+        "floor": "Terra + Primo",
+        "pert": "Box doppio 40mq\nLavanderia 12mq",
+        "balcony": "Balcone 15 mq\nPortico 7 mq\nGiardino 225 mq",
         "available": false
       }
     ],
     "images": [
-      "https://placehold.co/1200x800/2a1a0a/f5f0e8?text=Residenza+Verde",
-      "https://placehold.co/1200x800/1a2a1a/f5f0e8?text=Interno+1",
-      "https://placehold.co/1200x800/1a1a2a/f5f0e8?text=Interno+2"
+      "../../public/images/INVENDITA/Albiolo/alb_V2-01 VILLA.jpg",
+      "../../public/images/INVENDITA/Albiolo/alb_V3-00 appartamenti.jpg",
+      "../../public/images/INVENDITA/Albiolo/Alb_V4-01 VILLA.jpg",
+      "../../public/images/INVENDITA/Albiolo/Alb_V5-00 appartamenti.jpg",
+      "../../public/images/INVENDITA/Albiolo/Alb_V6-00 3D appartamenti.jpg",
+      "../../public/images/INVENDITA/Albiolo/Alb_V7-00 3D.jpg",
+      "../../public/images/INVENDITA/Albiolo/Alb_V8-00 3D.jpg"
     ],
-    "coverImage": "https://placehold.co/800x600/2a1a0a/f5f0e8?text=Residenza+Verde"
-  },
-  {
-    "id": "villa-collina",
-    "title": "Villa Collina",
-    "location": "Malnate, VA",
-    "status": "in-vendita",
-    "statusLabel": "In Vendita",
-    "type": "Villa Singola",
-    "description": "Splendida villa singola su tre livelli con ampio giardino privato, piscina e vista panoramica sulle prealpi varesine.",
-    "longDescription": "Villa Collina è una dimora di assoluto pregio, progettata da un team di architetti con esperienza internazionale. I 450 mq di superficie abitabile si sviluppano su tre livelli interconnessi da una scenografica scala in vetro e acciaio. Il giardino di 2000 mq include piscina a sfioro e area relax.",
-    "workProgress": 100,
-    "workProgressLabel": "Completata — pronta per la consegna",
-    "availableFrom": "Disponibile subito",
-    "pdfUrl": "",
-    "features": [
-      "450 mq su 3 livelli",
-      "Piscina a sfioro",
-      "Giardino 2000 mq",
-      "Garage doppio",
-      "Cantina vini",
-      "Vista panoramica"
-    ],
-    "units": [
-      {
-        "type": "Villa intera",
-        "size": "450 mq",
-        "floor": "3 livelli",
-        "exposure": "Panoramica",
-        "balcony": "Terrazza 60 mq + giardino",
-        "available": true
-      }
-    ],
-    "images": [
-      "https://placehold.co/1200x800/0a1a2a/f5f0e8?text=Villa+Collina",
-      "https://placehold.co/1200x800/2a0a1a/f5f0e8?text=Piscina",
-      "https://placehold.co/1200x800/0a2a1a/f5f0e8?text=Giardino"
-    ],
-    "coverImage": "https://placehold.co/800x600/0a1a2a/f5f0e8?text=Villa+Collina"
+    "coverImage": "../../public/images/INVENDITA/Albiolo/alb_V1-01 appartamenti.jpg"
   },
   {
     "id": "parco-varese",
@@ -114,26 +114,35 @@
     ],
     "units": [
       {
+        "id": "parco-varese-trilocale-1",
+        "title": "Trilocale Est",
+        "description": "Appartamento con esposizione est ai piani 1 e 2. Luminoso al mattino, con terrazzo privato e vista sul parco. Finiture selezionate e impianti domotici Bticino.",
         "type": "Trilocale",
         "size": "90 mq",
         "floor": "Piano 1-2",
-        "exposure": "Est",
+        "pert": "Est",
         "balcony": "Terrazzo 14 mq",
         "available": true
       },
       {
+        "id": "parco-varese-quadrilocale-1",
+        "title": "Quadrilocale Sud",
+        "description": "Ampio quadrilocale al terzo piano con esposizione sud, massima luminosità tutto il giorno. Terrazzo da 18 mq con vista panoramica sulla città.",
         "type": "Quadrilocale",
         "size": "120 mq",
         "floor": "Piano 3",
-        "exposure": "Sud",
+        "pert": "Sud",
         "balcony": "Terrazzo 18 mq",
         "available": true
       },
       {
+        "id": "parco-varese-attico-1",
+        "title": "Attico Panoramico",
+        "description": "Attico esclusivo all'ultimo piano con terrazza abitabile da 45 mq e vista a 360° su Varese e il suo lago. La residenza più prestigiosa dell'intero complesso.",
         "type": "Attico",
         "size": "160 mq",
         "floor": "Piano 4",
-        "exposure": "Panoramica 360°",
+        "pert": "Panoramica 360°",
         "balcony": "Terrazza abitabile 45 mq",
         "available": true
       }

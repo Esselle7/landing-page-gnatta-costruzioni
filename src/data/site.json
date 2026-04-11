@@ -3,9 +3,8 @@
     "name": "Costruzioni Gnatta",
     "tagline": "Costruiamo il futuro, abitiamo l'eccellenza",
     "description": "Un'impresa edile che da anni lavora nel settore, specializzata in progettazione e costruzioni residenziali di qualità. Realizziamo ville, palazzine ed edilizia privata con materiali e tecnologie all'avanguardia.",
-    "email": "info@gnatta.it",
-    "phone": "+39 0332 000000",
-    "address": "Via Esempio 1, Solbiate con Cagno (CO)",
+    "phone": "031 941 378",
+    "address": "Via Nazario Sauro 17 Solbiate con Cagno (CO)",
     "piva": "IT00000000000",
     "socialLinks": {
       "facebook": "",
@@ -14,10 +13,9 @@
     }
   },
   "stats": [
-    { "value": 25, "label": "Anni di Esperienza", "suffix": "+" },
-    { "value": 80, "label": "Progetti Completati", "suffix": "+" },
-    { "value": 350, "label": "Unità Abitative", "suffix": "+" },
-    { "value": 98, "label": "Clienti Soddisfatti", "suffix": "%" }
+    { "value": 55, "label": "Anni di Esperienza", "suffix": "+" },
+    { "value": 75, "label": "Progetti Completati", "suffix": "+" },
+    { "value": 450, "label": "Unità Abitative", "suffix": "+" }
   ],
   "values": [
     {
@@ -43,23 +41,41 @@
   ],
   "hero": {
     "headline": "Costruiamo Spazi\nda Vivere",
-    "subheadline": "Ville, palazzine e residenze di pregio nel cuore della Lombardia. Ogni progetto nasce dalla cura per i dettagli e dalla passione per l'eccellenza.",
-    "ctaPrimary": { "label": "Scopri le Unità", "href": "/unita-in-vendita" },
-    "ctaSecondary": { "label": "I Nostri Lavori", "href": "/realizzazioni" }
+    "subheadline": "Soluzioni abitative curate, pensate per chi cerca qualità nella vita di tutti i giorni.",
+    "ctaPrimary": { "label": "Scopri le Unità", "href": "/unita-in-vendita" }
   },
   "aboutPage": {
     "title": "Chi Siamo",
-    "intro": "Costruzioni Gnatta è molto più di un'impresa edile: siamo una realtà radicata nel territorio che trasforma sogni in abitazioni di qualità superiore.",
-    "story": "Nata dalla passione per l'edilizia e dalla visione imprenditoriale del suo fondatore, Costruzioni Gnatta ha costruito nel corso degli anni una reputazione solida basata su qualità, innovazione e rispetto per il cliente. Dalla progettazione alla consegna delle chiavi, ogni fase è gestita internamente con la massima cura.",
-    "mission": "La nostra missione è creare abitazioni che migliorino la qualità della vita di chi le abita, coniugando estetica, funzionalità e sostenibilità in ogni progetto.",
-    "approach": "Il nostro approccio è integrato: acquistiamo il terreno, progettiamo, realizziamo e vendiamo direttamente. Questo ci permette di mantenere il controllo totale sulla qualità e di offrire ai nostri clienti la massima trasparenza.",
+    "intro": "Costruzioni Gnatta è molto più di un'impresa edile: siamo una realtà radicata nel territorio che trasforma sogni in abitazioni di qualità.",
+    "story": "Costruzioni Gnatta Srl è un’impresa edile con oltre 50 anni di esperienza, tramandata attraverso tre generazioni: dal nonno al figlio fino al nipote. Radicata nel territorio e nel tempo, l’azienda unisce passione, dedizione e competenza consolidata, distinguendosi per affidabilità e qualità.",
+    "storyContinue": "Siamo specializzati nella progettazione e costruzione, operando principalmente nel settore residenziale, con la realizzazione di palazzine, edifici privati e ville. L’innovazione guida ogni nostro progetto: siamo stati tra i primi nel comasco a realizzare edifici in classe A, utilizzando pompe di calore, monoblocchi coibentati e blocchi Pontarolo ad alta efficienza energetica per garantire comfort, sostenibilità e risparmio energetico. Queste tecnologie ci permettono di offrire abitazioni performanti e rispettose dell’ambiente, rispondendo alle esigenze dei nostri clienti.",
+    "mission": "La nostra missione è realizzare abitazioni che migliorino la qualità della vita di chi le vive, unendo estetica, funzionalità e sostenibilità in ogni progetto.",
+    "approach": "Gestiamo direttamente ogni fase del progetto, dall’acquisto del terreno alla realizzazione fino alla vendita. In questo modo garantiamo qualità costante e un’esperienza d’acquisto semplice e lineare.",
     "timeline": [
-      { "year": "2000", "event": "Fondazione dell'azienda" },
-      { "year": "2005", "event": "Primo grande complesso residenziale" },
-      { "year": "2010", "event": "Certificazione energetica classe A" },
-      { "year": "2015", "event": "50 unità abitative consegnate" },
-      { "year": "2020", "event": "Adozione tecnologie smart home" },
-      { "year": "2024", "event": "350+ abitazioni realizzate" }
+      {
+        "year": "1970",
+        "event": "Nasce l’attività di famiglia, con i primi interventi edilizi sul territorio comasco e una forte attenzione alla qualità costruttiva."
+      },
+      {
+        "year": "1990",
+        "event": "L’impresa cresce consolidando la propria presenza nel settore residenziale e ampliando l’attività nella realizzazione di abitazioni private."
+      },
+      {
+        "year": "2005",
+        "event": "Con il passaggio generazionale, l’azienda rafforza il proprio modello operativo seguendo direttamente ogni fase: progettazione, costruzione e vendita."
+      },
+      {
+        "year": "2010",
+        "event": "Tra le prime realtà del territorio ad adottare soluzioni ad alta efficienza energetica e a realizzare edifici in classe A."
+      },
+      {
+        "year": "2018",
+        "event": "Introduzione di tecnologie costruttive evolute come pompe di calore, monoblocchi coibentati e sistemi ad alte prestazioni energetiche."
+      },
+      {
+        "year": "Oggi",
+        "event": "Tre generazioni di esperienza continuano a costruire abitazioni pensate per durare, con attenzione a comfort, sostenibilità e qualità."
+      }
     ]
   }
 }
