@@ -182,5 +182,87 @@
       "/images/REALIZZAZIONI/Vedano Olona/IMG_0432 vedano.jpg"
     ],
     "coverImage": "/images/REALIZZAZIONI/Vedano Olona/20180112_144142.jpg"
+  },
+  {
+    "id": "malnate-via-primo-maggio",
+    "title": "Malnate",
+    "location": "Via Primo Maggio",
+    "status": "completato",
+    "statusLabel": "Realizzato",
+    "type": "Complesso Residenziale",
+    "description": "Complesso residenziale situato a Malnate - Via Primo Maggio.",
+    "longDescription": "Descrizione dettagliata della realizzazione presso la località di Malnate - Via Primo Maggio.",
+    "workProgress": 100,
+    "workProgressLabel": "Lavori ultimati",
+    "availableFrom": "Consegnato",
+    "pdfUrl": "",
+    "features": [
+      "Classe energetica elevata",
+      "Design moderno",
+      "Finiture di pregio"
+    ],
+    "units": [],
+    "images": [
+      "/images/REALIZZAZIONI/Malnate - Via Primo Maggio/IMG_2039.JPG",
+      "/images/REALIZZAZIONI/Malnate - Via Primo Maggio/IMG_2040.JPG",
+      "/images/REALIZZAZIONI/Malnate - Via Primo Maggio/IMG_2042.JPG",
+      "/images/REALIZZAZIONI/Malnate - Via Primo Maggio/IMG_2045.JPG",
+      "/images/REALIZZAZIONI/Malnate - Via Primo Maggio/IMG_2060.JPG"
+    ],
+    "coverImage": "/images/REALIZZAZIONI/Malnate - Via Primo Maggio/IMG_2039.JPG"
+  },
+  {
+    "id": "olgiate-via-roncoroni",
+    "title": "Olgiate",
+    "location": "Via Roncoroni",
+    "status": "completato",
+    "statusLabel": "Realizzato",
+    "type": "Complesso Residenziale e Commerciale",
+    "description": "Complesso residenziale e commerciale situato a Olgiate - Via Roncoroni.",
+    "longDescription": "Descrizione dettagliata della realizzazione residenziale e commerciale presso la località di Olgiate - Via Roncoroni.",
+    "workProgress": 100,
+    "workProgressLabel": "Lavori ultimati",
+    "availableFrom": "Consegnato",
+    "pdfUrl": "",
+    "features": [
+      "Spazi residenziali e commerciali",
+      "Classe energetica elevata",
+      "Posizione strategica"
+    ],
+    "units": [],
+    "images": [
+      "/images/REALIZZAZIONI/Olgiate - Via Roncoroni/IMG_4315.jpg",
+      "/images/REALIZZAZIONI/Olgiate - Via Roncoroni/IMG_4316.jpg",
+      "/images/REALIZZAZIONI/Olgiate - Via Roncoroni/IMG_4320.jpg",
+      "/images/REALIZZAZIONI/Olgiate - Via Roncoroni/IMG_4424.jpg"
+    ],
+    "coverImage": "/images/REALIZZAZIONI/Olgiate - Via Roncoroni/IMG_4315.jpg"
+  },
+  {
+    "id": "rodero-via-alla-vigna",
+    "title": "Rodero",
+    "location": "Via Alla Vigna",
+    "status": "completato",
+    "statusLabel": "Realizzato",
+    "type": "Complesso Residenziale",
+    "description": "Complesso residenziale situato a Rodero - Via Alla Vigna.",
+    "longDescription": "Descrizione dettagliata della realizzazione presso la località di Rodero - Via Alla Vigna.",
+    "workProgress": 100,
+    "workProgressLabel": "Lavori ultimati",
+    "availableFrom": "Consegnato",
+    "pdfUrl": "",
+    "features": [
+      "Classe energetica elevata",
+      "Contesto tranquillo",
+      "Finiture moderne"
+    ],
+    "units": [],
+    "images": [
+      "/images/REALIZZAZIONI/Rodero - Via Alla Vigna/b2.JPG",
+      "/images/REALIZZAZIONI/Rodero - Via Alla Vigna/b3.JPG",
+      "/images/REALIZZAZIONI/Rodero - Via Alla Vigna/b5.JPG",
+      "/images/REALIZZAZIONI/Rodero - Via Alla Vigna/bella.JPG"
+    ],
+    "coverImage": "/images/REALIZZAZIONI/Rodero - Via Alla Vigna/b2.JPG"
   }
 ]
