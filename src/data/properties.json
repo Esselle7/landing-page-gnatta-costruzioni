@@ -95,65 +95,29 @@
   },
   {
     "id": "parco-varese",
-    "title": "Parco Varese",
-    "location": "Varese, VA",
+    "title": "Uggiate con Ronago (CO)",
+    "location": "Via Ugo Foscolo",
     "status": "prossimamente",
     "statusLabel": "Prossimamente",
     "type": "Complesso Residenziale",
-    "description": "Nuovo sviluppo residenziale nel cuore di Varese. 12 appartamenti con finiture di lusso, terrazzi privati e posto auto.",
-    "longDescription": "Parco Varese rappresenta il nostro progetto più ambizioso: 12 unità abitative distribuite su 4 piani, con terrazzi abitabili su tutti i lati per massimizzare la vista sulla città e sul lago. I materiali sono selezionati esclusivamente da fornitori europei certificati.",
+    "description": "Residenza ad Uggiate con Ronago in posizione soleggiata e tranquilla, palazzina su due piani con nove appartamenti e spazi esterni privati.",
+    "longDescription": "In una posizione soleggiata, tranquilla e comoda a tutti i servizi, la palazzina si sviluppa su due piani e ospita nove appartamenti. Ogni unità dispone di spazi esterni privati, pensati per vivere momenti all'aperto.",
     "workProgress": 20,
     "workProgressLabel": "Fondazioni in corso",
     "availableFrom": "Autunno 2026",
     "pdfUrl": "/pdf/parco-varese-planimetrie.pdf",
     "features": [
-      "12 unità disponibili",
-      "Terrazzi privati",
-      "Domotica Bticino",
-      "Parcheggi interrati",
-      "Depositi bici",
-      "Connessione fibra"
+      "9 unità disponibili",
+      "Spazi esterni privati",
+      "Posizione soleggiata",
+      "Comodo ai servizi"
     ],
-    "units": [
-      {
-        "id": "parco-varese-trilocale-1",
-        "title": "Trilocale Est",
-        "description": "Appartamento con esposizione est ai piani 1 e 2. Luminoso al mattino, con terrazzo privato e vista sul parco. Finiture selezionate e impianti domotici Bticino.",
-        "type": "Trilocale",
-        "size": "90 mq",
-        "floor": "Piano 1-2",
-        "pert": "Est",
-        "balcony": "Terrazzo 14 mq",
-        "available": true
-      },
-      {
-        "id": "parco-varese-quadrilocale-1",
-        "title": "Quadrilocale Sud",
-        "description": "Ampio quadrilocale al terzo piano con esposizione sud, massima luminosità tutto il giorno. Terrazzo da 18 mq con vista panoramica sulla città.",
-        "type": "Quadrilocale",
-        "size": "120 mq",
-        "floor": "Piano 3",
-        "pert": "Sud",
-        "balcony": "Terrazzo 18 mq",
-        "available": true
-      },
-      {
-        "id": "parco-varese-attico-1",
-        "title": "Attico Panoramico",
-        "description": "Attico esclusivo all'ultimo piano con terrazza abitabile da 45 mq e vista a 360° su Varese e il suo lago. La residenza più prestigiosa dell'intero complesso.",
-        "type": "Attico",
-        "size": "160 mq",
-        "floor": "Piano 4",
-        "pert": "Panoramica 360°",
-        "balcony": "Terrazza abitabile 45 mq",
-        "available": true
-      }
-    ],
+    "units": [],
     "images": [
       "https://placehold.co/1200x800/1a0a2a/f5f0e8?text=Parco+Varese",
       "https://placehold.co/1200x800/2a1a0a/f5f0e8?text=Render+1",
       "https://placehold.co/1200x800/0a2a2a/f5f0e8?text=Render+2"
     ],
-    "coverImage": "https://placehold.co/800x600/1a0a2a/f5f0e8?text=Parco+Varese"
+    "coverImage": "/images/PROSSIMAMENTE/UggiateViaFoscolo.png"
   }
 ]

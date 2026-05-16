@@ -6,3 +6,6 @@ ARCHITECTURE.md
 DEVELOPER-GUIDE.md
 GUIDA-CONTENUTI.md
 node_modules
+.env
+.env.local
+.dev.vars
