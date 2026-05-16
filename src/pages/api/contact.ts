@@ -127,7 +127,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     },
     body: JSON.stringify({
       from: 'Sito Gnatta <onboarding@resend.dev>',
-      to: ['simone.leone300900@gmail.com'],
+      to: ['costruzionignatta@gmail.com'],
       reply_to: email,
       subject: `[Sito] ${interesseLabel} – ${nome}`,
       html,
