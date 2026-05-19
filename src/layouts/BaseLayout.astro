@@ -4,25 +4,126 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import siteData from '../data/site.json';
 
+interface BreadcrumbItem {
+  name: string;
+  href: string;
+}
+
 interface Props {
   title: string;
+  seoTitle?: string;
   description?: string;
   ogImage?: string;
   noIndex?: boolean;
+  breadcrumbs?: BreadcrumbItem[];
+  pageType?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage';
 }
 
 const {
   title,
-  description = siteData.company.description,
-  ogImage = '/images/og-default.jpg',
+  seoTitle,
+  description = siteData.company.seoDescription,
+  ogImage = '/images/placeholder.webp',
   noIndex = false,
+  breadcrumbs,
+  pageType = 'WebPage',
 } = Astro.props;
 
-const fullTitle = title === siteData.company.name
-  ? title
-  : `${title} | ${siteData.company.name}`;
+const fullTitle = seoTitle
+  ? seoTitle
+  : title === siteData.company.name
+    ? `${siteData.company.name} | Impresa Edile Como e Varese dal 1970`
+    : `${title} | ${siteData.company.name}`;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageAbsolute = ogImage.startsWith('http') ? ogImage : `${Astro.site}${ogImage.replace(/^\//, '')}`;
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "GeneralContractor"],
+  "name": siteData.company.name,
+  "description": siteData.company.seoDescription,
+  "url": "https://costruzioni-gnatta.it",
+  "telephone": siteData.company.phoneIntl,
+  "foundingDate": "1970",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": siteData.company.streetAddress,
+    "addressLocality": siteData.company.addressLocality,
+    "addressRegion": siteData.company.addressRegion,
+    "postalCode": siteData.company.postalCode,
+    "addressCountry": "IT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": siteData.company.latitude,
+    "longitude": siteData.company.longitude
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Como" },
+    { "@type": "City", "name": "Varese" },
+    { "@type": "AdministrativeArea", "name": "Provincia di Como" },
+    { "@type": "AdministrativeArea", "name": "Provincia di Varese" },
+    { "@type": "AdministrativeArea", "name": "Lombardia" }
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ],
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://costruzioni-gnatta.it/images/logo.png"
+  },
+  "image": "https://costruzioni-gnatta.it/images/logo.png",
+  "priceRange": "€€€",
+  "knowsAbout": [
+    "Costruzioni residenziali",
+    "Impresa edile Como",
+    "Impresa edile Varese",
+    "Ristrutturazioni Como",
+    "Edifici classe A",
+    "Pompe di calore",
+    "Efficienza energetica",
+    "Palazzine residenziali",
+    "Ville private"
+  ]
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": pageType,
+  "name": fullTitle,
+  "description": description,
+  "url": canonicalURL.toString(),
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": siteData.company.name,
+    "url": "https://costruzioni-gnatta.it"
+  }
+};
+
+const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://costruzioni-gnatta.it/"
+    },
+    ...breadcrumbs.map((crumb, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 2,
+      "name": crumb.name,
+      "item": `https://costruzioni-gnatta.it${crumb.href}`
+    }))
+  ]
+} : null;
 ---
 
 <!DOCTYPE html>
@@ -30,55 +131,74 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/svg+xml" href="/images/logo.png" />
+  <meta name="theme-color" content="#0c0a09" />
+  <meta name="author" content={siteData.company.name} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/logo.png" />
+  <link rel="shortcut icon" href="/images/logo.png" />
+
+  <!-- Canonical -->
   <link rel="canonical" href={canonicalURL} />
 
-  <!-- SEO -->
+  <!-- SEO primario -->
   <title>{fullTitle}</title>
   <meta name="description" content={description} />
-  {noIndex && <meta name="robots" content="noindex" />}
+  {noIndex
+    ? <meta name="robots" content="noindex, nofollow" />
+    : <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  }
+
+  <!-- Geo / Local SEO -->
+  <meta name="geo.region" content="IT-CO" />
+  <meta name="geo.placename" content="Solbiate con Cagno, Como, Lombardia" />
+  <meta name="geo.position" content={`${siteData.company.latitude};${siteData.company.longitude}`} />
+  <meta name="ICBM" content={`${siteData.company.latitude}, ${siteData.company.longitude}`} />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL} />
   <meta property="og:title" content={fullTitle} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content={ogImage} />
+  <meta property="og:image" content={ogImageAbsolute} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="it_IT" />
   <meta property="og:site_name" content={siteData.company.name} />
 
-  <!-- Twitter -->
+  <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={fullTitle} />
   <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={ogImage} />
+  <meta name="twitter:image" content={ogImageAbsolute} />
 
-  <!-- Structured Data -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    "name": siteData.company.name,
-    "description": siteData.company.description,
-    "url": canonicalURL,
-    "telephone": siteData.company.phone,
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Solbiate con Cagno",
-      "addressCountry": "IT"
-    }
-  })} />
+  <!-- Structured Data: LocalBusiness -->
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
 
-  <!-- Performance hints -->
+  <!-- Structured Data: WebPage -->
+  <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
+
+  <!-- Structured Data: Breadcrumb (se presente) -->
+  {breadcrumbSchema && (
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  )}
+
+  <!-- Performance: preconnect per font Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Google Fonts con font-display swap -->
   <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap"
   />
+
+  <!-- DNS Prefetch per risorse esterne -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 </head>
 <body class="min-h-screen bg-stone-950">
   <Navbar />
-  <main>
+  <main id="main-content">
     <slot />
   </main>
   <Footer />

@@ -6,13 +6,16 @@ const { aboutPage, company } = siteData;
 
 <BaseLayout
   title="Chi Siamo"
-  description={aboutPage.intro}
+  seoTitle="Chi Siamo | Costruzioni Gnatta - Impresa Edile Como dal 1970"
+  description="Scopri la storia di Costruzioni Gnatta, impresa edile a Como e Varese con oltre 55 anni di esperienza. Tre generazioni di eccellenza nelle costruzioni residenziali, ville e palazzine in classe A in tutta la Lombardia."
+  pageType="AboutPage"
+  breadcrumbs={[{ name: "Chi Siamo", href: "/chi-siamo/" }]}
 >
 
   <!-- Page Header -->
   <section class="relative pt-40 pb-24 overflow-hidden">
     <div class="absolute inset-0"
-         style="background-image: url('/images/placeholder.jpg');
+         style="background-image: url('/images/placeholder.webp');
                 background-size: cover;
                 background-position: center;">
     </div>
@@ -20,7 +23,7 @@ const { aboutPage, company } = siteData;
     <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
       <span class="gold-line"></span>
       <h1 class="font-display text-7xl md:text-8xl text-stone-100 font-light leading-none mb-6">
-        Chi <em class="text-brand-400 not-italic">Siamo</em>
+        Impresa Edile <em class="text-brand-400 not-italic">Como dal 1970</em>
       </h1>
       <p class="font-body text-xl text-stone-400 max-w-2xl leading-relaxed">
         {aboutPage.intro}

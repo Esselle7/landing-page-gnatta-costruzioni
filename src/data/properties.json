@@ -33,7 +33,7 @@
         "available": true,
         "price": "365.000 €",
         "images": [
-          "/images/INVENDITA/Albiolo/alb_V2-01 VILLA.jpg"
+          "/images/INVENDITA/Albiolo/alb_V2-01 VILLA.webp"
         ]
       },
       {
@@ -46,7 +46,8 @@
         "pert": "Box doppio 40mq\nCantina 8mq\nPosto auto coperto",
         "balcony": "Balcone 28 mq",
         "available": true,
-        "price": "365.000 €"
+        "price": "365.000 €",
+        "images": []
       },
       {
         "id": "residenza-verde-quadrilocale-1",
@@ -57,7 +58,8 @@
         "floor": "Terra",
         "pert": "Box doppio 40mq\nCantina 8mq\nPosto auto coperto",
         "balcony": "Porticato 24 mq\nGiardino 250 mq",
-        "available": false
+        "available": false,
+        "images": []
       },
       {
         "id": "residenza-verde-quadrilocale-2",
@@ -68,7 +70,8 @@
         "floor": "Primo",
         "pert": "Box doppio 40mq\nCantina 8mq\nPosto auto coperto",
         "balcony": "Balcone 24 mq",
-        "available": false
+        "available": false,
+        "images": []
       },
       {
         "id": "residenza-verde-villa-1",
@@ -79,19 +82,20 @@
         "floor": "Terra + Primo",
         "pert": "Box doppio 40mq\nLavanderia 12mq",
         "balcony": "Balcone 15 mq\nPortico 7 mq\nGiardino 225 mq",
-        "available": false
+        "available": false,
+        "images": []
       }
     ],
     "images": [
-      "/images/INVENDITA/Albiolo/alb_V2-01 VILLA.jpg",
-      "/images/INVENDITA/Albiolo/alb_V3-00 appartamenti.jpg",
-      "/images/INVENDITA/Albiolo/Alb_V4-01 VILLA.jpg",
-      "/images/INVENDITA/Albiolo/Alb_V5-00 appartamenti.jpg",
-      "/images/INVENDITA/Albiolo/Alb_V6-00 3D appartamenti.jpg",
-      "/images/INVENDITA/Albiolo/Alb_V7-00 3D.jpg",
-      "/images/INVENDITA/Albiolo/Alb_V8-00 3D.jpg"
+      "/images/INVENDITA/Albiolo/alb_V2-01 VILLA.webp",
+      "/images/INVENDITA/Albiolo/alb_V3-00 appartamenti.webp",
+      "/images/INVENDITA/Albiolo/Alb_V4-01 VILLA.webp",
+      "/images/INVENDITA/Albiolo/Alb_V5-00 appartamenti.webp",
+      "/images/INVENDITA/Albiolo/Alb_V6-00 3D appartamenti.webp",
+      "/images/INVENDITA/Albiolo/Alb_V7-00 3D.webp",
+      "/images/INVENDITA/Albiolo/Alb_V8-00 3D.webp"
     ],
-    "coverImage": "/images/INVENDITA/Albiolo/alb_V1-01 appartamenti.jpg"
+    "coverImage": "/images/INVENDITA/Albiolo/alb_V1-01 appartamenti.webp"
   },
   {
     "id": "parco-varese",
@@ -118,6 +122,6 @@
       "https://placehold.co/1200x800/2a1a0a/f5f0e8?text=Render+1",
       "https://placehold.co/1200x800/0a2a2a/f5f0e8?text=Render+2"
     ],
-    "coverImage": "/images/PROSSIMAMENTE/UggiateViaFoscolo.png"
+    "coverImage": "/images/PROSSIMAMENTE/UggiateViaFoscolo.webp"
   }
 ]

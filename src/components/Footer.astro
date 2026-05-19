@@ -3,95 +3,143 @@ import siteData from '../data/site.json';
 const { company } = siteData;
 ---
 
-<footer class="bg-stone-950 border-t border-stone-800">
-  <!-- Main footer -->
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20">
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+<footer class="bg-stone-950" aria-label="Footer sito Costruzioni Gnatta">
 
-      <!-- Brand -->
-      <div class="lg:col-span-2">
-        <a href="/" class="flex items-center gap-3 group">
-  <img
-    src="/images/logo.png"
-    alt="Costruzioni Gnatta"
-    class="h-10 w-auto object-contain"
-  />
-  <span class="font-display text-xl text-stone-100 tracking-wide">
-    Costruzioni <span class="text-brand-400">Gnatta</span>
-  </span>
-</a>
-        <p class="font-body text-stone-400 text-sm leading-relaxed max-w-sm">
-          {company.description}
+  <!-- MAP SECTION -->
+  <div class="border-t border-stone-800 relative overflow-hidden h-[360px] md:h-[400px]">
+
+    <!-- Mappa Google con filtro dark -->
+    <iframe
+      src="https://www.google.com/maps?q=Via+Nazario+Sauro+17,+Solbiate+con+Cagno,+CO,+Italy&hl=it&z=15&output=embed"
+      width="100%"
+      height="130%"
+      style="border:0; position:absolute; top:-15%; left:0; filter: invert(92%) hue-rotate(180deg) brightness(0.82) saturate(0.55) contrast(1.05);"
+      loading="lazy"
+      allowfullscreen=""
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Sede Costruzioni Gnatta – Via Nazario Sauro 17, Solbiate con Cagno (CO)"
+    ></iframe>
+
+    <!-- Gradient fade sinistro -->
+    <div class="absolute inset-y-0 left-0 w-[60%] md:w-[45%] pointer-events-none z-10"
+         style="background: linear-gradient(to right, #0c0a09 55%, rgba(12,10,9,0.80) 78%, transparent 100%);">
+    </div>
+
+    <!-- Gradient fade destro sottile -->
+    <div class="absolute inset-y-0 right-0 w-16 pointer-events-none z-10"
+         style="background: linear-gradient(to left, #0c0a09 0%, transparent 100%);">
+    </div>
+
+    <!-- Bordo superiore accent gold -->
+    <div class="absolute top-0 left-0 right-0 h-px z-10"
+         style="background: linear-gradient(to right, rgba(200,131,42,0.55) 0%, rgba(200,131,42,0.12) 40%, transparent 60%);">
+    </div>
+
+    <!-- Info card floating -->
+    <div class="absolute inset-y-0 left-0 z-20 flex items-center w-full max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-[300px]">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 mb-5 group">
+          <img src="/images/logo.png" alt="Costruzioni Gnatta" class="h-8 w-auto object-contain" />
+          <span class="font-display text-lg text-stone-100 tracking-wide">
+            Costruzioni <span class="text-brand-400">Gnatta</span>
+          </span>
+        </a>
+
+        <!-- Gold line -->
+        <span class="gold-line"></span>
+
+        <!-- Label -->
+        <p class="font-body text-xs tracking-widest uppercase text-brand-400 mb-3">
+          Dove Siamo
         </p>
-        <div class="flex gap-4 mt-8">
-          <a href="/contatti" class="btn-primary text-xs py-3">
+
+        <!-- Indirizzo + Telefono -->
+        <address class="not-italic mb-4 space-y-1">
+          <span class="font-display text-xl md:text-2xl text-stone-100 font-light leading-snug block">
+            Via Nazario Sauro 17
+          </span>
+          <span class="font-body text-sm text-stone-400 block">
+            Solbiate con Cagno (CO) · Lombardia
+          </span>
+          <a
+            href={`tel:${company.phoneIntl}`}
+            class="inline-flex items-center gap-2 font-body text-sm text-stone-300 hover:text-brand-400 transition-colors duration-200 pt-1"
+          >
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-brand-500 flex-shrink-0">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1.17h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            {company.phone}
+          </a>
+        </address>
+
+        <!-- Orari con dot pulsante -->
+        <div class="flex items-center gap-3 mb-5">
+          <span class="relative flex h-2 w-2 flex-shrink-0">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-60"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+          </span>
+          <span class="font-body text-xs text-stone-500 tracking-wide">
+            Lun – Ven &nbsp;9:00 – 18:00
+          </span>
+        </div>
+
+        <!-- CTA buttons -->
+        <div class="flex items-center gap-3 flex-wrap">
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=Via+Nazario+Sauro+17,+Solbiate+con+Cagno,+CO,+Italia"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 font-body text-xs tracking-widest uppercase
+                   text-brand-400 border border-stone-700 px-4 py-2.5
+                   hover:border-brand-500 hover:text-brand-300 transition-all duration-300"
+          >
+            Indicazioni
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a
+            href="/contatti"
+            class="inline-flex items-center gap-2 font-body text-xs tracking-widest uppercase
+                   text-stone-400 border border-stone-800 px-4 py-2.5
+                   hover:border-stone-600 hover:text-stone-200 transition-all duration-300"
+          >
             Contattaci
           </a>
         </div>
-      </div>
 
-      <!-- Navigation -->
-      <div>
-        <h3 class="font-body text-xs tracking-widest uppercase text-brand-400 mb-6">
-          Navigazione
-        </h3>
-        <ul class="flex flex-col gap-3">
-          {[
-            { label: 'Home', href: '/' },
-            { label: 'Chi Siamo', href: '/chi-siamo' },
-            { label: 'Unità in Vendita', href: '/unita-in-vendita' },
-            { label: 'Realizzazioni', href: '/realizzazioni' },
-          ].map((link) => (
-            <li>
-              <a href={link.href}
-                 class="font-body text-sm text-stone-400 hover:text-brand-400 transition-colors duration-200">
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Contacts -->
-      <div>
-        <h3 class="font-body text-xs tracking-widest uppercase text-brand-400 mb-6">
-          Contatti
-        </h3>
-        <ul class="flex flex-col gap-4">
-          <li class="flex gap-3">
-            <span class="text-brand-500 mt-0.5">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-                <circle cx="12" cy="9" r="2.5"/>
-              </svg>
-            </span>
-            <span class="font-body text-sm text-stone-400">{company.address}</span>
-          </li>
-          <li class="flex gap-3">
-            <span class="text-brand-500 mt-0.5">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1.17h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-              </svg>
-            </span>
-            <a href={`tel:${company.phone}`}
-               class="font-body text-sm text-stone-400 hover:text-brand-400 transition-colors">
-              {company.phone}
-            </a>
-          </li>
-        </ul>
       </div>
     </div>
   </div>
 
   <!-- Bottom bar -->
-  <div class="border-t border-stone-800">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="font-body text-xs text-stone-600">
-        &copy; {new Date().getFullYear()} {company.name}. Tutti i diritti riservati.
+  <div class="border-t border-stone-800/60">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+
+      <!-- Nav links -->
+      <nav aria-label="Link footer" class="flex items-center gap-5 flex-wrap justify-center sm:justify-start">
+        {[
+          { label: 'Home', href: '/' },
+          { label: 'Chi Siamo', href: '/chi-siamo' },
+          { label: 'Unità in Vendita', href: '/unita-in-vendita' },
+          { label: 'Realizzazioni', href: '/realizzazioni' },
+          { label: 'Contatti', href: '/contatti' },
+        ].map((link) => (
+          <a href={link.href}
+             class="font-body text-xs text-stone-600 hover:text-stone-400 transition-colors duration-200">
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Copyright -->
+      <p class="font-body text-xs text-stone-700 flex-shrink-0">
+        &copy; {new Date().getFullYear()} {company.name} · P.IVA {company.piva}
       </p>
-      <p class="font-body text-xs text-stone-700">
-        P.IVA {company.piva}
-      </p>
+
     </div>
   </div>
+
 </footer>

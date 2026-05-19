@@ -23,8 +23,13 @@ const contactUrl = `/contatti?interesse=unita-vendita&unita=${property.id}&titol
 
 <BaseLayout
   title={property.title}
-  description={property.description}
+  seoTitle={`${property.title} in Vendita | Costruzioni Gnatta Como`}
+  description={`${property.description} ${property.features?.slice(0,3).join(', ')}. Costruzioni Gnatta, impresa edile nelle province di Como e Varese. Richiedi informazioni.`}
   ogImage={property.coverImage}
+  breadcrumbs={[
+    { name: "Unità in Vendita", href: "/unita-in-vendita/" },
+    { name: property.title, href: `/unita-in-vendita/${property.id}/` }
+  ]}
 >
 
   <!-- Back link -->

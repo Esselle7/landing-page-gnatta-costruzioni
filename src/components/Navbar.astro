@@ -11,7 +11,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
-  <nav class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-20">
+  <nav aria-label="Navigazione principale" class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-20">
     <!-- Logo -->
     <a href="/" class="flex items-center gap-3 group">
   <img
@@ -30,6 +30,7 @@ const currentPath = Astro.url.pathname;
         <li>
           <a
             href={link.href}
+            aria-current={currentPath.startsWith(link.href) ? 'page' : undefined}
             class:list={[
               'font-body text-sm tracking-widest uppercase transition-colors duration-200',
               currentPath.startsWith(link.href)
@@ -54,7 +55,9 @@ const currentPath = Astro.url.pathname;
     <button
       id="menu-toggle"
       class="lg:hidden flex flex-col gap-1.5 p-2"
-      aria-label="Menu"
+      aria-label="Apri menu di navigazione"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
     >
       <span class="menu-bar block w-6 h-px bg-stone-300 transition-all duration-300"></span>
       <span class="menu-bar block w-6 h-px bg-stone-300 transition-all duration-300"></span>
@@ -105,5 +108,7 @@ const currentPath = Astro.url.pathname;
   menuToggle.addEventListener('click', () => {
     const isOpen = !mobileMenu.classList.contains('hidden');
     mobileMenu.classList.toggle('hidden', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(!isOpen));
+    menuToggle.setAttribute('aria-label', isOpen ? 'Apri menu di navigazione' : 'Chiudi menu di navigazione');
   });
 </script>

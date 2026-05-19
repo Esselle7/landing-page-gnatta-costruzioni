@@ -19,12 +19,12 @@
     ],
     "units": [],
     "images": [
-      "/images/REALIZZAZIONI/Bizzarone/IMG_0111.jpg",
-      "/images/REALIZZAZIONI/Bizzarone/IMG_0113.jpg",
-      "/images/REALIZZAZIONI/Bizzarone/IMG_0117.jpg",
-      "/images/REALIZZAZIONI/Bizzarone/IMG_0119.jpg"
+      "/images/REALIZZAZIONI/Bizzarone/IMG_0111.webp",
+      "/images/REALIZZAZIONI/Bizzarone/IMG_0113.webp",
+      "/images/REALIZZAZIONI/Bizzarone/IMG_0117.webp",
+      "/images/REALIZZAZIONI/Bizzarone/IMG_0119.webp"
     ],
-    "coverImage": "/images/REALIZZAZIONI/Bizzarone/IMG_0111.jpg"
+    "coverImage": "/images/REALIZZAZIONI/Bizzarone/IMG_0111.webp"
   },
   {
     "id": "uggiate-piazza-repubblica",
@@ -46,10 +46,10 @@
     ],
     "units": [],
     "images": [
-      "/images/REALIZZAZIONI/Uggiate - Piazza Repubblica/DJI_0059.jpg",
-      "/images/REALIZZAZIONI/Uggiate - Piazza Repubblica/DJI_0061.jpg"
+      "/images/REALIZZAZIONI/Uggiate - Piazza Repubblica/DJI_0059.webp",
+      "/images/REALIZZAZIONI/Uggiate - Piazza Repubblica/DJI_0061.webp"
     ],
-    "coverImage": "/images/REALIZZAZIONI/Uggiate - Piazza Repubblica/DJI_0059.jpg"
+    "coverImage": "/images/REALIZZAZIONI/Uggiate - Piazza Repubblica/DJI_0059.webp"
   },
   {
     "id": "uggiate-via-roma",
@@ -70,10 +70,10 @@
     ],
     "units": [],
     "images": [
-      "/images/REALIZZAZIONI/Uggiate - Via Roma/DJI_0048.jpg",
-      "/images/REALIZZAZIONI/Uggiate - Via Roma/DJI_0050.jpg"
+      "/images/REALIZZAZIONI/Uggiate - Via Roma/DJI_0048.webp",
+      "/images/REALIZZAZIONI/Uggiate - Via Roma/DJI_0050.webp"
     ],
-    "coverImage": "/images/REALIZZAZIONI/Uggiate - Via Roma/DJI_0048.jpg"
+    "coverImage": "/images/REALIZZAZIONI/Uggiate - Via Roma/DJI_0048.webp"
   },
   {
     "id": "uggiate-via-somazzo",
@@ -95,14 +95,14 @@
     ],
     "units": [],
     "images": [
-      "/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0024.jpg",
-      "/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0026.jpg",
-      "/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0029.jpg",
-      "/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0031.jpg",
-      "/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0033.jpg",
-      "/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0038.jpg"
+      "/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0024.webp",
+      "/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0026.webp",
+      "/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0029.webp",
+      "/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0031.webp",
+      "/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0033.webp",
+      "/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0038.webp"
     ],
-    "coverImage": "/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0024.jpg"
+    "coverImage": "/images/REALIZZAZIONI/Uggiate - Via Somazzo/DJI_0024.webp"
   },
   {
     "id": "uggiate-via-sturzo",
@@ -123,14 +123,14 @@
     ],
     "units": [],
     "images": [
-      "/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0062.jpg",
-      "/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0064.jpg",
-      "/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0065.jpg",
-      "/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0067.jpg",
-      "/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0068.jpg",
-      "/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0070.jpg"
+      "/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0062.webp",
+      "/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0064.webp",
+      "/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0065.webp",
+      "/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0067.webp",
+      "/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0068.webp",
+      "/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0070.webp"
     ],
-    "coverImage": "/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0062.jpg"
+    "coverImage": "/images/REALIZZAZIONI/Uggiate - Via Sturzo/DJI_0062.webp"
   },
   {
     "id": "valmorea",
@@ -151,11 +151,11 @@
     ],
     "units": [],
     "images": [
-      "/images/REALIZZAZIONI/Valmorea/DJI_0087.jpg",
-      "/images/REALIZZAZIONI/Valmorea/DJI_0088.jpg",
-      "/images/REALIZZAZIONI/Valmorea/DJI_0094.jpg"
+      "/images/REALIZZAZIONI/Valmorea/DJI_0087.webp",
+      "/images/REALIZZAZIONI/Valmorea/DJI_0088.webp",
+      "/images/REALIZZAZIONI/Valmorea/DJI_0094.webp"
     ],
-    "coverImage": "/images/REALIZZAZIONI/Valmorea/DJI_0087.jpg"
+    "coverImage": "/images/REALIZZAZIONI/Valmorea/DJI_0087.webp"
   },
   {
     "id": "vedano-olona",
@@ -176,12 +176,12 @@
     ],
     "units": [],
     "images": [
-      "/images/REALIZZAZIONI/Vedano Olona/20180112_144142.jpg",
-      "/images/REALIZZAZIONI/Vedano Olona/20180112_144233.jpg",
-      "/images/REALIZZAZIONI/Vedano Olona/IMG_0431 vedano.jpg",
-      "/images/REALIZZAZIONI/Vedano Olona/IMG_0432 vedano.jpg"
+      "/images/REALIZZAZIONI/Vedano Olona/20180112_144142.webp",
+      "/images/REALIZZAZIONI/Vedano Olona/20180112_144233.webp",
+      "/images/REALIZZAZIONI/Vedano Olona/IMG_0431 vedano.webp",
+      "/images/REALIZZAZIONI/Vedano Olona/IMG_0432 vedano.webp"
     ],
-    "coverImage": "/images/REALIZZAZIONI/Vedano Olona/20180112_144142.jpg"
+    "coverImage": "/images/REALIZZAZIONI/Vedano Olona/20180112_144142.webp"
   },
   {
     "id": "malnate-via-primo-maggio",
@@ -203,13 +203,13 @@
     ],
     "units": [],
     "images": [
-      "/images/REALIZZAZIONI/Malnate - Via Primo Maggio/IMG_2039.JPG",
-      "/images/REALIZZAZIONI/Malnate - Via Primo Maggio/IMG_2040.JPG",
-      "/images/REALIZZAZIONI/Malnate - Via Primo Maggio/IMG_2042.JPG",
-      "/images/REALIZZAZIONI/Malnate - Via Primo Maggio/IMG_2045.JPG",
-      "/images/REALIZZAZIONI/Malnate - Via Primo Maggio/IMG_2060.JPG"
+      "/images/REALIZZAZIONI/Malnate - Via Primo Maggio/IMG_2039.webp",
+      "/images/REALIZZAZIONI/Malnate - Via Primo Maggio/IMG_2040.webp",
+      "/images/REALIZZAZIONI/Malnate - Via Primo Maggio/IMG_2042.webp",
+      "/images/REALIZZAZIONI/Malnate - Via Primo Maggio/IMG_2045.webp",
+      "/images/REALIZZAZIONI/Malnate - Via Primo Maggio/IMG_2060.webp"
     ],
-    "coverImage": "/images/REALIZZAZIONI/Malnate - Via Primo Maggio/IMG_2039.JPG"
+    "coverImage": "/images/REALIZZAZIONI/Malnate - Via Primo Maggio/IMG_2039.webp"
   },
   {
     "id": "olgiate-via-roncoroni",
@@ -231,12 +231,12 @@
     ],
     "units": [],
     "images": [
-      "/images/REALIZZAZIONI/Olgiate - Via Roncoroni/IMG_4315.jpg",
-      "/images/REALIZZAZIONI/Olgiate - Via Roncoroni/IMG_4316.jpg",
-      "/images/REALIZZAZIONI/Olgiate - Via Roncoroni/IMG_4320.jpg",
-      "/images/REALIZZAZIONI/Olgiate - Via Roncoroni/IMG_4424.jpg"
+      "/images/REALIZZAZIONI/Olgiate - Via Roncoroni/IMG_4315.webp",
+      "/images/REALIZZAZIONI/Olgiate - Via Roncoroni/IMG_4316.webp",
+      "/images/REALIZZAZIONI/Olgiate - Via Roncoroni/IMG_4320.webp",
+      "/images/REALIZZAZIONI/Olgiate - Via Roncoroni/IMG_4424.webp"
     ],
-    "coverImage": "/images/REALIZZAZIONI/Olgiate - Via Roncoroni/IMG_4315.jpg"
+    "coverImage": "/images/REALIZZAZIONI/Olgiate - Via Roncoroni/IMG_4315.webp"
   },
   {
     "id": "rodero-via-alla-vigna",
@@ -258,11 +258,11 @@
     ],
     "units": [],
     "images": [
-      "/images/REALIZZAZIONI/Rodero - Via Alla Vigna/b2.JPG",
-      "/images/REALIZZAZIONI/Rodero - Via Alla Vigna/b3.JPG",
-      "/images/REALIZZAZIONI/Rodero - Via Alla Vigna/b5.JPG",
-      "/images/REALIZZAZIONI/Rodero - Via Alla Vigna/bella.JPG"
+      "/images/REALIZZAZIONI/Rodero - Via Alla Vigna/b2.webp",
+      "/images/REALIZZAZIONI/Rodero - Via Alla Vigna/b3.webp",
+      "/images/REALIZZAZIONI/Rodero - Via Alla Vigna/b5.webp",
+      "/images/REALIZZAZIONI/Rodero - Via Alla Vigna/bella.webp"
     ],
-    "coverImage": "/images/REALIZZAZIONI/Rodero - Via Alla Vigna/b2.JPG"
+    "coverImage": "/images/REALIZZAZIONI/Rodero - Via Alla Vigna/b2.webp"
   }
 ]

@@ -1,20 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-<url>
-<loc>https://costruzioni-gnatta.it</loc>
-</url>
+  <url>
+    <loc>https://costruzioni-gnatta.it/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
 
-<url>
-<loc>https://costruzioni-gnatta.itrealizzazioni/</loc>
-</url>
+  <url>
+    <loc>https://costruzioni-gnatta.it/chi-siamo/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
-<url>
-<loc>https://costruzioni-gnatta.itunita-in-vendita/</loc>
-</url>
+  <url>
+    <loc>https://costruzioni-gnatta.it/contatti/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
-<url>
-<loc>https://costruzioni-gnatta.itcontatti/</loc>
-</url>
+  <url>
+    <loc>https://costruzioni-gnatta.it/unita-in-vendita/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://costruzioni-gnatta.it/unita-in-vendita/residenza-verde/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://costruzioni-gnatta.it/unita-in-vendita/parco-varese/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://costruzioni-gnatta.it/realizzazioni/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://costruzioni-gnatta.it/realizzazioni/bizzarone/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://costruzioni-gnatta.it/realizzazioni/uggiate-piazza-repubblica/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://costruzioni-gnatta.it/realizzazioni/uggiate-via-roma/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://costruzioni-gnatta.it/realizzazioni/uggiate-via-somazzo/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://costruzioni-gnatta.it/realizzazioni/uggiate-via-sturzo/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://costruzioni-gnatta.it/realizzazioni/valmorea/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://costruzioni-gnatta.it/realizzazioni/vedano-olona/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://costruzioni-gnatta.it/realizzazioni/malnate-via-primo-maggio/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://costruzioni-gnatta.it/realizzazioni/olgiate-via-roncoroni/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://costruzioni-gnatta.it/realizzazioni/rodero-via-alla-vigna/</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
 
 </urlset>

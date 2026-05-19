@@ -13,7 +13,11 @@ const featuredProperties = properties.slice(0, 3);
 const featuredRealizzazioni = realizzazioni.slice(0, 4);
 ---
 
-<BaseLayout title={siteData.company.name} description={siteData.company.description}>
+<BaseLayout
+  title={siteData.company.name}
+  seoTitle="Costruzioni Gnatta | Impresa Edile Como e Varese dal 1970"
+  description={siteData.company.seoDescription}
+>
 
   <!-- HERO -->
   <Hero />
@@ -25,14 +29,15 @@ const featuredRealizzazioni = realizzazioni.slice(0, 4);
   <ValoriSection />
 
   <!-- PROPERTIES PREVIEW -->
-  <section class="bg-stone-950 py-28">
+  <section class="bg-stone-950 py-28" aria-label="Appartamenti e ville in vendita Como e Varese">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
         <div class="reveal">
           <span class="gold-line"></span>
           <h2 class="font-display text-4xl sm:text-5xl md:text-6xl text-stone-100 font-light leading-tight">
-            Unità <em class="text-brand-400 not-italic">in Vendita</em>
+            Appartamenti e Ville <em class="text-brand-400 not-italic">in Vendita</em>
           </h2>
+          <p class="font-body text-stone-500 text-sm mt-3">Como e Varese · Classe Energetica A</p>
         </div>
         <a href="/unita-in-vendita"
            class="btn-outline reveal delay-200 self-start md:self-auto">
@@ -51,7 +56,7 @@ const featuredRealizzazioni = realizzazioni.slice(0, 4);
   </section>
 
   <!-- REALIZZAZIONI PREVIEW -->
-  <section class="bg-stone-900 py-28">
+  <section class="bg-stone-900 py-28" aria-label="Progetti realizzati impresa edile Como e Varese">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
         <div class="reveal">
@@ -59,6 +64,7 @@ const featuredRealizzazioni = realizzazioni.slice(0, 4);
           <h2 class="font-display text-4xl sm:text-5xl md:text-6xl text-stone-100 font-light leading-tight">
             Le Nostre <em class="text-brand-400 not-italic">Realizzazioni</em>
           </h2>
+          <p class="font-body text-stone-500 text-sm mt-3">Complessi residenziali nelle province di Como e Varese</p>
         </div>
         <a href="/realizzazioni" class="btn-outline reveal delay-200 self-start md:self-auto">
           Vedi Tutte
@@ -76,14 +82,13 @@ const featuredRealizzazioni = realizzazioni.slice(0, 4);
   </section>
 
   <!-- CTA SECTION -->
-  <section class="relative py-32 overflow-hidden">
+  <section class="relative py-32 overflow-hidden" aria-label="Contatti impresa edile Como Varese">
     <div class="absolute inset-0"
-         style="background-image: url('/images/placeholder.jpg');
+         style="background-image: url('/images/placeholder.webp');
                 background-size: cover;
                 background-position: center;">
     </div>
     <div class="absolute inset-0" style="background: rgba(10,8,6,0.72);"></div>
-    </div>
 
     <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
       <div class="reveal">

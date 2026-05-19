@@ -16,8 +16,13 @@ const otherProjects = realizzazioni.filter((r) => r.id !== realizzazione.id).sli
 
 <BaseLayout
   title={realizzazione.title}
-  description={realizzazione.description}
+  seoTitle={`${realizzazione.title} – ${realizzazione.type} | Costruzioni Gnatta`}
+  description={`${realizzazione.description} Realizzato da Costruzioni Gnatta, impresa edile specializzata in costruzioni residenziali nelle province di Como e Varese, Lombardia.`}
   ogImage={realizzazione.coverImage}
+  breadcrumbs={[
+    { name: "Realizzazioni", href: "/realizzazioni/" },
+    { name: realizzazione.title, href: `/realizzazioni/${realizzazione.id}/` }
+  ]}
 >
 
   <!-- Back link -->

@@ -6,17 +6,20 @@ const { hero } = siteData;
 <section
   class="relative min-h-screen flex items-center justify-center overflow-hidden"
   style="background: #0c0a09;"
+  aria-label="Costruzioni Gnatta – Impresa Edile Como e Varese dal 1970"
 >
-  <!-- Video background -->
+  <!-- Video background: parte invisibile, fade-in al canplay per evitare flash -->
   <video
+    id="hero-video"
     autoplay
     muted
     loop
     playsinline
     disableRemotePlayback
+    preload="none"
     class="absolute inset-0 w-full h-full object-cover"
-    style="opacity: 0.45;"
-    poster="/images/hero-poster.jpg"
+    style="opacity: 0; transition: opacity 1s ease;"
+    aria-hidden="true"
   >
     <source src="/video/drone.mp4" type="video/mp4" />
   </video>
@@ -40,7 +43,7 @@ const { hero } = siteData;
            style="animation: fadeUp 0.7s 0.2s ease forwards;">
         <span class="block w-12 h-px bg-brand-500"></span>
         <span class="font-body text-xs tracking-widest uppercase text-brand-400">
-          Impresa Edile dal 1970
+          Impresa Edile Como e Varese dal 1970
         </span>
       </div>
 
@@ -107,3 +110,13 @@ const { hero } = siteData;
     100% { top: 150%; }
   }
 </style>
+
+<script>
+  const video = document.getElementById('hero-video') as HTMLVideoElement | null;
+  if (video) {
+    const show = () => { video.style.opacity = '0.45'; };
+    video.addEventListener('canplay', show, { once: true });
+    // Fallback: se già caricato (cache browser)
+    if (video.readyState >= 3) show();
+  }
+</script>
