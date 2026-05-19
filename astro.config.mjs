@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
-  site: 'https://costruzioni-gnatta.it',
+  site: 'https://costruzioni-gnatta.com',
   integrations: [
     tailwind(),
   ],

@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://costruzioni-gnatta.it/sitemap.xml
+Sitemap: https://costruzioni-gnatta.com/sitemap.xml

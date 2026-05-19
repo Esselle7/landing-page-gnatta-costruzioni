@@ -43,7 +43,7 @@ const localBusinessSchema = {
   "@type": ["LocalBusiness", "GeneralContractor"],
   "name": siteData.company.name,
   "description": siteData.company.seoDescription,
-  "url": "https://costruzioni-gnatta.it",
+  "url": "https://costruzioni-gnatta.com",
   "telephone": siteData.company.phoneIntl,
   "foundingDate": "1970",
   "address": {
@@ -76,9 +76,9 @@ const localBusinessSchema = {
   ],
   "logo": {
     "@type": "ImageObject",
-    "url": "https://costruzioni-gnatta.it/images/logo.png"
+    "url": "https://costruzioni-gnatta.com/images/logo.png"
   },
-  "image": "https://costruzioni-gnatta.it/images/logo.png",
+  "image": "https://costruzioni-gnatta.com/images/logo.png",
   "priceRange": "€€€",
   "knowsAbout": [
     "Costruzioni residenziali",
@@ -102,7 +102,7 @@ const webPageSchema = {
   "isPartOf": {
     "@type": "WebSite",
     "name": siteData.company.name,
-    "url": "https://costruzioni-gnatta.it"
+    "url": "https://costruzioni-gnatta.com"
   }
 };
 
@@ -114,13 +114,13 @@ const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 0 ? {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://costruzioni-gnatta.it/"
+      "item": "https://costruzioni-gnatta.com/"
     },
     ...breadcrumbs.map((crumb, idx) => ({
       "@type": "ListItem",
       "position": idx + 2,
       "name": crumb.name,
-      "item": `https://costruzioni-gnatta.it${crumb.href}`
+      "item": `https://costruzioni-gnatta.com${crumb.href}`
     }))
   ]
 } : null;

@@ -77,7 +77,7 @@ function buildEmailHtml(d: ContactData): string {
       </div>
 
       <p style="margin-top:32px;font-size:12px;color:#bbb;border-top:1px solid #eee;padding-top:20px;">
-        Questa email è stata generata automaticamente dal sito <strong>costruzioni-gnatta.it</strong>
+        Questa email è stata generata automaticamente dal sito <strong>costruzioni-gnatta.com</strong>
         il ${new Date().toLocaleString('it-IT', { timeZone: 'Europe/Rome' })}.
       </p>
     </div>
