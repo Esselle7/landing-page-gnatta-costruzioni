@@ -87,6 +87,7 @@ function buildEmailHtml(d: ContactData): string {
 }
 
 export const POST: APIRoute = async ({ request, locals }) => {
+  try {
   const env = (locals as any).runtime?.env ?? {};
   const data = await request.json() as Record<string, any>;
 
@@ -126,7 +127,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: 'Sito Gnatta <onboarding@resend.dev>',
+      from: 'Sito Gnatta <noreply@costruzioni-gnatta.com>',
       to: ['costruzionignatta@gmail.com'],
       reply_to: email,
       subject: `[Sito] ${interesseLabel} – ${nome}`,
@@ -136,10 +137,10 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
   if (!resendRes.ok) {
     const err = await resendRes.text();
-    console.error('Resend error:', err);
+    console.error('Resend error:', resendRes.status, err);
     return new Response(
-      JSON.stringify({ error: 'Errore invio email' }),
-      { status: 500, headers: { 'Content-Type': 'application/json' } }
+      JSON.stringify({ error: 'Errore invio email', detail: err }),
+      { status: 502, headers: { 'Content-Type': 'application/json' } }
     );
   }
 
@@ -147,4 +148,11 @@ export const POST: APIRoute = async ({ request, locals }) => {
     JSON.stringify({ success: true }),
     { headers: { 'Content-Type': 'application/json' } }
   );
+  } catch (e: any) {
+    console.error('Contact endpoint error:', e);
+    return new Response(
+      JSON.stringify({ error: 'Errore interno', detail: String(e?.message ?? e) }),
+      { status: 500, headers: { 'Content-Type': 'application/json' } }
+    );
+  }
 };
