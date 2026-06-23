@@ -111,13 +111,12 @@
     "availableFrom": "Disponibile",
     "pdfUrl": "/pdf/parco-varese-planimetrie.pdf",
     "features": [
-      "9 unità disponibili",
-      "Spazi esterni privati",
-      "Posizione soleggiata",
-      "Comodo ai servizi",
       "Classe energetica A4",
       "Impianti autonomi in pompa di calore",
-      "Riscaldamento a pavimento"
+      "Pannelli fotovoltaici",
+      "Riscaldamento a pavimento",
+      "Impianto di condizionamento",
+      "VMC"
     ],
     "units": [
       {
@@ -239,14 +238,14 @@
       }
     ],
     "images": [
+      "/images/INVENDITA/Uggiate/U2-V4-01.jpg",
       "/images/INVENDITA/Uggiate/U2-V1-02.jpg",
       "/images/INVENDITA/Uggiate/U2-V2-02.jpg",
       "/images/INVENDITA/Uggiate/U2-V3-02.jpg",
-      "/images/INVENDITA/Uggiate/U2-V4-01.jpg",
       "/images/INVENDITA/Uggiate/U2-V0405-02.jpg",
       "/images/INVENDITA/Uggiate/U2-V0412-02.jpg",
       "/images/INVENDITA/Uggiate/U2-V0423-02.jpg"
     ],
-    "coverImage": "/images/INVENDITA/Uggiate/U2-V1-02.jpg"
+    "coverImage": "/images/INVENDITA/Uggiate/U2-V4-01.jpg"
   }
 ]
